@@ -334,16 +334,17 @@ if (paramsId) {
   });
 
   const nextToDetail = (detail) => {
-    const currentURL = new URL(window.location.href);
-    const url = new URL("detail.html", currentURL.origin);
-    const params = new URLSearchParams(currentURL.search);
-    if (paramsId) {
-      params.set("id", paramsId);
-    }
-    params.set("detail", detail);
-    location.href = url.href;
-    url.search = params.toString();
-    window.location.href = url.href;
+    console.log(location);
+    // const currentURL = new URL(window.location.href);
+    // const url = new URL("detail.html", currentURL.origin);
+    // const params = new URLSearchParams(currentURL.search);
+    // if (paramsId) {
+    //   params.set("id", paramsId);
+    // }
+    // params.set("detail", detail);
+    // location.href = url.href;
+    // url.search = params.toString();
+    // window.location.href = url.href;
   };
 } else {
   location.href = "login.html";
