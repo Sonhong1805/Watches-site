@@ -68,7 +68,7 @@ btnUpdate.addEventListener("click", (e) => {
     user.password = password.value;
     localStorage.setItem("userStorage", JSON.stringify(userStorage));
     alert("Thay đổi mật khẩu thành công");
-    location.href = "/login.html";
+    location.href = "login.html";
     document.getElementsByTagName("form")[0].reset();
   }
 });
@@ -80,7 +80,7 @@ document.addEventListener("keydown", (e) => {
       user.password = password.value;
       localStorage.setItem("userStorage", JSON.stringify(userStorage));
       alert("Thay đổi mật khẩu thành công");
-      location.href = "/login.html";
+      location.href = "login.html";
       document.getElementsByTagName("form")[0].reset();
     }
   }
