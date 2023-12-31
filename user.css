@@ -1,0 +1,653 @@
+li {
+  cursor: pointer;
+}
+
+.profile {
+  max-width: 123rem;
+  padding-inline: 1.5rem;
+  margin: auto;
+  padding-block: 6rem;
+  display: flex;
+}
+
+.profile__sidebar {
+  background-color: var(--white);
+  padding-inline: 3rem;
+  transition: visibility 0.2s, opacity 0.2s, transform 0.2s;
+}
+
+.profile__sidebar.sidebar--open {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(0);
+  padding: 9rem 4rem;
+}
+
+.btn__sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+  z-index: 999;
+}
+
+.btn__sidebar i {
+  font-size: 3rem;
+  color: var(--white);
+  opacity: 0.6;
+  transition: all 0.2s;
+}
+
+.btn__sidebar:hover i {
+  opacity: 1;
+}
+
+.profile__sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: #0000004f;
+  z-index: 998;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.sidebar--open + .profile__sidebar-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+
+.sidebar--open + .profile__sidebar-overlay + .btn__sidebar {
+  visibility: visible;
+  opacity: 1;
+}
+
+.profile__sidebar.sidebar--open ul li a {
+  padding-block: 2rem;
+  padding-left: 2.5rem;
+}
+
+.profile__sidebar h3 {
+  font-size: 1.4rem;
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+}
+
+.profile__sidebar-link,
+.profile__sidebar-logout {
+  width: 100%;
+  display: block;
+  font-size: 1.4rem;
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+  transition: color 0.2s;
+}
+
+.profile__sidebar-link:hover,
+.profile__sidebar-logout:hover {
+  color: #ee4d2d;
+}
+
+.profile__sidebar-link.active {
+  color: #ee4d2d;
+}
+
+.profile__sidebar h3 i {
+  margin-right: 0.5rem;
+  color: var(--secondary-color);
+}
+
+.profile__menu-button i {
+  color: var(--secondary-color);
+}
+
+.profile__section {
+  flex: 1;
+  padding-inline: 3rem;
+  border-left: 1px solid #ddd;
+}
+
+.profile__header {
+  display: none;
+  align-items: baseline;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1.8rem;
+}
+
+.profile__header.active {
+  display: flex;
+}
+
+.profile__header-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile__header p {
+  font-size: 1.4rem;
+  color: #555555;
+}
+
+.profile__header-button {
+  padding-inline: 1.5rem;
+  align-self: baseline;
+  display: none;
+}
+
+.profile__header-button i {
+  color: var(--secondary-color);
+  font-size: 1.8rem;
+}
+
+.profile__form {
+  display: none;
+}
+
+.profile__form.active {
+  display: block;
+}
+
+.profile__form-container {
+  padding: 3rem 6rem;
+}
+
+.profile__form-input {
+  border: 1px solid #ddd;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 1rem 1.5rem;
+  font-size: 1.4rem;
+  flex: 1;
+  max-width: 40rem;
+}
+
+.profile__form-input.check-error::placeholder {
+  color: var(--error);
+}
+
+.profile__form-input.check-error {
+  border: 1px solid var(--error);
+}
+
+.profile__form-input.password-field__input {
+  max-width: none;
+  min-width: 23rem;
+  padding-right: 4rem;
+}
+
+.profile__form-input.addon {
+  max-width: 16rem;
+}
+
+.profile__form-label {
+  font-size: 1.4rem;
+  color: #555555;
+  min-width: 9rem;
+  text-align: end;
+}
+
+.profile__form-radio-group {
+  display: flex;
+}
+
+.profile__form-radio-label {
+  font-size: 1.4rem;
+  padding-right: 1.5rem;
+  margin-left: 0.5rem;
+  color: #555;
+}
+
+.profile__form-label.password {
+  min-width: 12rem;
+}
+
+.profile__form-radio input {
+  accent-color: #ee4d2d;
+}
+
+.profile__form-button {
+  font-size: 1.4rem;
+  background: var(--error);
+  color: var(--white);
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.profile__form-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.profile__form-field.address {
+  gap: 1rem;
+  justify-content: center;
+}
+
+.profile__form-select-group {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.profile__form-select {
+  display: flex;
+  position: relative;
+  gap: 1rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.selected-option {
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  padding-inline: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  flex: 1;
+  width: 10.6rem;
+  cursor: pointer;
+}
+
+.selected-option.check-error {
+  border: 1px solid var(--error);
+}
+
+.current-option__image {
+  display: flex;
+  align-items: center;
+}
+
+.current-option__image img {
+  width: 9rem;
+  object-fit: contain;
+  padding-right: 1.6rem;
+  display: none;
+}
+
+.selected-option.bank {
+  width: auto;
+  max-width: 40rem;
+  overflow: hidden;
+}
+
+.selected-option.address {
+  width: auto;
+  width: 17rem;
+}
+
+.selected-option.address.address-hide,
+.address-hide input:disabled {
+  cursor: no-drop;
+  background-color: var(--white);
+}
+
+.selected-options {
+  flex: 1;
+  display: flex;
+  max-width: 13.8rem;
+  position: relative;
+}
+
+.selected-option.option-open {
+  border: 1px solid #ee4d2d;
+}
+
+.selected-options.address,
+.selected-options.bank {
+  max-width: none;
+}
+
+.current-option {
+  font-size: 1.6rem;
+  color: #111111;
+  flex: 1;
+}
+
+.current-option.check-error::placeholder {
+  color: var(--error);
+}
+
+.current-option.province,
+.current-option.district,
+.current-option.ward {
+  width: 0rem;
+  height: 100%;
+}
+
+.selected-option i {
+  color: #111111;
+}
+
+.option-list {
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-top: none;
+  position: absolute;
+  top: 4.2rem;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  height: 12rem;
+  overflow: auto;
+  display: none;
+  z-index: 999;
+}
+
+.option-list.option-open {
+  display: block;
+}
+
+.option-list.bank {
+  max-width: 43rem;
+}
+
+.option-input {
+  width: 100%;
+  font-size: 1.4rem;
+}
+
+.option-item {
+  font-size: 1.6rem;
+  padding-left: 1.5rem;
+  padding-block: 1rem;
+}
+
+.option-item.bank {
+  flex: 1;
+}
+
+.option-item.bank-item {
+  display: flex;
+  align-items: center;
+}
+
+.option-item.bank-item img {
+  width: 9rem;
+  object-fit: contain;
+}
+
+.input-with-addon {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.addon-text {
+  font-size: 2rem;
+  padding-inline: 3rem;
+  height: 37px;
+  background: #c3c3c3;
+  border: 1px solid #c3c3c3;
+  display: flex;
+  align-items: center;
+}
+
+textarea {
+  border: 1px solid #ddd;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 1rem 1.5rem;
+  font-size: 1.4rem;
+  flex: 1;
+}
+
+textarea.check-error {
+  border: 1px solid var(--error);
+}
+
+textarea.check-error::placeholder {
+  color: var(--error);
+}
+
+.address-type__label {
+  font-size: 1.4rem;
+  color: #555;
+}
+
+.address-type__option input {
+  display: none;
+}
+
+.address-type__option label {
+  font-size: 1.4rem;
+  color: #555;
+  border: 1px solid #ddd;
+  padding: 1rem 2rem;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.address-type__option input:checked + label {
+  color: #ee4d2d;
+  border: 1px solid #ee4d2d;
+}
+
+.profile__form-field.address-type {
+  gap: 1rem;
+}
+
+.password-field {
+  position: relative;
+  flex: 1;
+  display: flex;
+  max-width: 40rem;
+}
+
+.password-field i {
+  position: absolute;
+  color: var(--black);
+  font-size: 2rem;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-field i.hide {
+  display: none;
+}
+
+.profile__form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 3rem;
+  flex-wrap: wrap;
+  display: none;
+}
+
+.profile__form-check.check-error {
+  display: flex;
+}
+
+p.new__password-error {
+  color: var(--error);
+  font-size: 1.2rem;
+  position: relative;
+  top: -1.2rem;
+}
+
+.profile__form-button.check-error {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.profile__form-default {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.profile__form-default input {
+  width: 2rem;
+  height: 2rem;
+  accent-color: #ee4d2d;
+}
+.profile__form-default label {
+  font-size: 1.4rem;
+  color: #555;
+}
+
+.profile__address-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ececec;
+  padding: 2rem 0 2rem;
+}
+
+.profile__address-contact {
+  margin-bottom: 1rem;
+}
+
+.profile__address-name {
+  font-size: 1.6rem;
+}
+
+.profile__address-separator {
+  top: 3px;
+  width: 1px;
+  display: inline-block;
+  height: 1.5rem;
+  margin-inline: 0.4rem;
+  position: relative;
+  background: #555;
+}
+
+.profile__address-phone {
+  font-size: 1.4rem;
+  color: #555;
+}
+
+.profile__address-street {
+  font-size: 1.4rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+}
+
+.profile__address-location {
+  font-size: 1.4rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+}
+
+.profile__address-default {
+  font-size: 1.4rem;
+  color: #ee4d2d;
+  border: 1px solid #ee4d2d;
+  padding: 0.3rem 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.profile__actions {
+  text-align: end;
+}
+
+.profile__update,
+.profile__delete {
+  font-size: 1.4rem;
+  color: var(--button-login);
+  padding-inline: 0.3rem;
+}
+
+.profile__update:hover,
+.profile__delete:hover {
+  text-decoration: underline;
+}
+
+.profile__set-default {
+  font-size: 1.4rem;
+  border: 1px solid #555;
+  color: #555;
+  padding: 0.3rem 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.profile__set-default.checked {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+#reset-address {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .profile__header-button {
+    display: block;
+  }
+
+  .profile__sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(-100%);
+  }
+
+  .profile__sidebar-overlay {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .btn__sidebar {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .profile__section {
+    border-left: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile__form-container {
+    padding: 3rem 0rem;
+  }
+  .profile__form-container.profile__form-password {
+    padding: 3rem 1.5rem;
+  }
+
+  .profile__section {
+    padding-inline: 0rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .selected-options {
+    max-width: none;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  .profile__form-input.addon {
+    max-width: none;
+    width: auto;
+  }
+
+  .addon-text {
+    flex: 1;
+  }
+
+  .profile__form-label {
+    text-align: start;
+  }
+
+  .profile__form-field {
+    justify-content: center;
+  }
+  .profile__form-button {
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+}

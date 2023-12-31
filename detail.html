@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang chi tiết sản phẩm</title>
+    <link rel="shortcut icon" href="images/logo-icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="detail.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header__top">
+        <div class="header__info">
+          <div class="header__address">
+            <i class="fa-solid fa-location-dot"></i>
+            435 - Trần Quốc Tảng, Cẩm Thịnh, Cẩm Phả, Quảng Ninh, Việt Nam
+          </div>
+          <div class="header__phone">
+            <i class="fa-solid fa-phone"></i>
+            0 327 842 451
+          </div>
+        </div>
+        <div class="header__social">
+          <ul class="header__social-list">
+            <li><i class="fa-brands fa-facebook-f"></i></li>
+            <li><i class="fa-brands fa-instagram"></i></li>
+            <li><i class="fa-brands fa-x-twitter"></i></li>
+          </ul>
+          <div class="header__user user--open">
+            <i class="fa-regular fa-user"></i>
+            <a href="login.html" class="header__user-link">Đăng nhập</a>
+            <a href="sign_up.html" class="header__user-link">Đăng ký</a>
+          </div>
+          <div class="header__user user--close">
+            <i class="fa-regular fa-circle-user"></i>
+            <a
+              href="user.html"
+              class="header__user-link userpage"
+              id="username"></a>
+            <a href="javascript:void(0);" class="header__user-link log-out"
+              >Đăng xuất</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="header-border">
+        <div class="header__bottom">
+          <button class="header__bars">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <a href="index.html" class="header__bottom-logo">
+            <img src="images/logo.png" alt="" />
+          </a>
+          <div class="header__bottom-search">
+            <input type="text" placeholder="Tìm kiếm ..... " />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <a href="cart.html" class="header__bottom-cart">
+            <div class="header__bottom-text">giỏ hàng</div>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <div class="header__bottom-counter">0</div>
+          </a>
+        </div>
+      </div>
+    </header>
+    <nav class="navbar">
+      <div class="navbar__container">
+        <ul class="navbar__list">
+          <li class="navbar__item">
+            <a href="index.html" class="navbar__link">Trang chủ</a>
+          </li>
+          <li class="navbar__item navbar__item--has-dropdown">
+            <a href="shop.html" class="navbar__link"
+              >Danh mục <i class="fa-solid fa-chevron-down"></i
+            ></a>
+            <ul class="navbar__sub-list"></ul>
+          </li>
+          <li class="navbar__item">
+            <a href="about.html" class="navbar__link">Giới thiệu</a>
+          </li>
+          <li class="navbar__item">
+            <a href="shop.html" class="navbar__link"
+              >Đồng hồ <i class="fa-solid fa-chevron-down"></i
+            ></a>
+            <ul class="navbar__sub-list">
+              <li class="navbar__sub-item">
+                <a href="" class="navbar__sub-link">Đồng hồ nam</a>
+              </li>
+              <li class="navbar__sub-item">
+                <a href="" class="navbar__sub-link">Đồng hồ nữ</a>
+              </li>
+            </ul>
+          </li>
+          <li class="navbar__item">
+            <a href="news.html" class="navbar__link">Tin tức</a>
+          </li>
+          <li class="navbar__item">
+            <a href="contact.html" class="navbar__link">Liên hệ</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <div class="detail">
+        <section class="detail__slider">
+          <div
+            style="
+              --swiper-navigation-color: #fff;
+              --swiper-pagination-color: #fff;
+            "
+            class="swiper mySwiper2">
+            <div class="detail__discount">-33%</div>
+            <div class="detail__icon-zoom">
+              <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+            </div>
+            <div class="swiper-wrapper image__swiper">
+              <div class="swiper-slide">
+                <img src="images/Aviator/aviator-1.1.png" />
+              </div>
+              <div class="swiper-slide">
+                <img src="images/Aviator/aviator-1.2.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="images/Aviator/aviator-1.3.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="images/Aviator/aviator-1.4.jpg" />
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <div thumbsSlider="" class="swiper mySwiper">
+            <div class="swiper-wrapper thumbs__swiper">
+              <div class="swiper-slide">
+                <img src="images/Aviator/aviator-1.1.png" />
+              </div>
+              <div class="swiper-slide">
+                <img src="images/Aviator/aviator-1.2.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="images/Aviator/aviator-1.3.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="images/Aviator/aviator-1.4.jpg" />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="detail__info">
+          <div class="detail__navigation">
+            <a href="">Trang chủ</a>
+            <div class="detail__separator">/</div>
+            <p class="categoryName">danh mục</p>
+          </div>
+          <h3 class="productName">Tên sản phẩm</h3>
+          <div class="detail__line"></div>
+          <p class="detail__price">
+            <del>10000000</del>
+            <strong>20000000</strong>
+          </p>
+          <div class="detail__description">Bộ sản phẩm gồm:</div>
+          <ul class="detail__product-list">
+            <li>1 đồng hồ chính hãng.</li>
+            <li>1 hộp giấy + 1 hộp thiếc (tùy sản phẩm).</li>
+            <li>1 thẻ bảo hành</li>
+            <li>Thẻ bảo hành chính hãng quốc tế 1 năm & 18 tháng cho Pin</li>
+            <li>Sách hướng dẫn sử dụng các thứ tiếng</li>
+            <li>Thông tin các đối tác bảo hành trên toàn cầu</li>
+            <li>Hỗ trợ hướng dẫn sử dụng và tư vấn sản phẩm trọn đời.</li>
+          </ul>
+          <div class="detail__color">
+            <h5>Màu sắc:</h5>
+            <div class="detail__color-group">
+              <div class="detail__color-input">
+                <input type="radio" name="color" id="green" />
+                <label for="green">Xanh</label>
+              </div>
+              <div class="detail__color-input">
+                <input type="radio" name="color" id="red" />
+                <label for="red">Đỏ</label>
+              </div>
+              <div class="detail__color-input">
+                <input type="radio" name="color" id="purple" />
+                <label for="purple">Tím</label>
+              </div>
+              <div class="detail__color-input">
+                <input type="radio" name="color" id="yellow" />
+                <label for="yellow">Vàng</label>
+              </div>
+              <div class="detail__color-input">
+                <input type="radio" name="color" id="orange" />
+                <label for="orange">Cam</label>
+              </div>
+            </div>
+          </div>
+          <div class="detail__quantity">
+            <h5>Số lượng:</h5>
+            <div class="detail__quantity-input">
+              <button class="quantity-minus">-</button>
+              <input type="text" value="1" min="1" />
+              <button class="quantity-plus">+</button>
+            </div>
+          </div>
+          <div class="cart-buttons">
+            <button class="cart-buttons__add">Thêm vào giỏ</button>
+            <button class="cart-buttons__buy-now">Mua ngay</button>
+          </div>
+        </section>
+      </div>
+      <hr />
+      <section class="detail__tabs">
+        <div class="tabs">
+          <input name="tabs" type="radio" id="tab-1" checked />
+          <label for="tab-1">Mô tả</label>
+          <div class="panel">
+            <h2>
+              <span class="categoryName"></span>
+              <span class="productName"></span>
+              – Dây đeo được đục lỗ để tạo nên hình ảnh tương tự như tấm lưới
+              dùng trong mũ lưỡi trai, túi xách, áo thun và các đồ thời trang
+              thể thao khác.
+            </h2>
+            <p>
+              Giới thiệu các màu mới cho Dòng Punching
+              <span class="productName"></span> được ưa chuộng. Các mẫu máy này
+              có màu sắc thể thao giống như màu được sử dụng cho giày thể thao
+              hợp thời trang và các đồ thể thao khác. Màu đen và xanh neon, màu
+              xanh neon và xanh lam nhạt, màu trắng và hồng cam tạo nên dòng sản
+              phẩm sành điệu và phong cách.
+              <br />
+              Dây đeo được đục lỗ để tạo nên hình ảnh tương tự như tấm lưới dùng
+              trong mũ lưỡi trai, túi xách, áo thun và các đồ thời trang thể
+              thao khác. Thiết kế này cũng cho phép không khí lưu thông để làm
+              mát cổ tay trong khi chơi thể thao. <br />
+              Nhờ sự kết hợp hoàn hảo giữa thiết kế đẹp mắt và chức năng tốt,
+              các mẫu máy này vừa là phụ kiện thời trang, vừa là đồ thể thao có
+              giá trị.
+            </p>
+            <h3>
+              Thông số kỹ thuật
+              <span class="categoryName">Casio Baby-G</span>
+              <span class="productName"></span>
+            </h3>
+            <ul>
+              <li>Mặt kính khoáng</li>
+              <li>Chống va đập</li>
+              <li>Khả năng chống nước ở độ sâu 100 mét</li>
+              <li>Vật liệu vỏ / gờ: Nhựa</li>
+              <li>Dây đeo bằng nhựa</li>
+              <li>Đèn LED</li>
+              <li>Giờ thế giới</li>
+              <li>
+                29 múi giờ (48 thành phố + giờ phối hợp quốc tế), hiển thị mã
+                thành phố, bật/tắt tiết kiệm ánh sáng ban ngày
+              </li>
+              <li>Đồng hồ bấm giờ 1/100 giây</li>
+              <li>Đồng hồ bấm giờ 1/100 giây</li>
+              <li>Khả năng đo: 23:59’59.99”</li>
+              <li>
+                Chế độ đo: Thời gian đã trôi qua, ngắt giờ, thời gian về đích
+                thứ nhất-thứ ha
+              </li>
+              <li>Đồng hồ đếm ngược</li>
+              <li>Đơn vị đo: 1 giây</li>
+              <li>Khoảng đếm ngược: 24 giờ</li>
+              <li>
+                Khoảng cài đặt thời gian bắt đầu đếm ngược: 1 phút đến 24 giờ
+                (khoảng tăng 1 phút và khoảng tăng 1 giờ)
+              </li>
+              <li>5 chế độ báo giờ hàng ngày (với 1 chế độ báo lặp)</li>
+              <li>Tín hiệu thời gian hàng giờ</li>
+              <li>Lịch hoàn toàn tự động (đến năm 2099)</li>
+              <li>Định dạng giờ 12/24</li>
+              <li>Bật/tắt âm nhấn nút</li>
+              <li>Giờ hiện hành thông thường</li>
+              <li>
+                Đồng hồ kim: 2 kim (giờ, phút (kim di chuyển 20 giây một lần))
+              </li>
+              <li>Đồng hồ số: Giờ, phút, giây, chiều, tháng, ngày, thứ</li>
+              <li>Độ chính xác: ±30 giây một tháng</li>
+              <li>Tuổi thọ pin xấp xỉ: 2 năm với pin SR726W × 2</li>
+            </ul>
+            <h3>
+              Kích thước vỏ/ Tổng trọng lượng
+              <span class="categoryName">Casio Baby-G</span>
+              <span class="productName"></span>
+            </h3>
+            <ul>
+              <li>Kích thước vỏ: 46,3 × 43,4 × 15,8 mm</li>
+              <li>Tổng trọng lượng: 45 g</li>
+            </ul>
+          </div>
+          <input name="tabs" type="radio" id="tab-2" />
+          <label for="tab-2">Đánh giá (0)</label>
+          <div class="panel">
+            <h3>Đánh giá</h3>
+            <p>Chưa có đánh giá nào.</p>
+            <div class="review">
+              <h3>
+                Trải nghiệm chiếc đồng hồ “<span class="productName"></span>”:
+                Sự hòa quyện tuyệt vời giữa thiết kế hiện đại và đa dạng màu
+                sắc, tạo nên một sản phẩm thời trang độc đáo và tiện ích. Hãy là
+                người đầu tiên nhận xét.
+              </h3>
+              <p>Đánh giá của bạn</p>
+              <div class="review__stars">
+                <div class="review__star">
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="review__star">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="review__star">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="review__star">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="review__star">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <form
+                action=""
+                class="review-form"
+                onsubmit="event.preventDefault();reset()">
+                <div class="form-group">
+                  <label for="comment">Nhận xét của bạn *</label>
+                  <textarea id="comment" cols="30" rows="10"></textarea>
+                </div>
+                <div class="form-wrapper">
+                  <div class="form-group">
+                    <label for="username">Tên *</label>
+                    <input type="text" id="username" />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" />
+                  </div>
+                </div>
+                <button onclick="alert('Gửi thành công')">Gửi đi</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr />
+      <section class="detail__products">
+        <h3>sản phẩm tương tự</h3>
+        <div class="detail__products-list">
+          <article class="detail__product-item">
+            <div class="detail__discount related-discount">-33%</div>
+            <div class="detail__product-image">
+              <img src="images/Baby-G/babyg-1.1.png" alt="" />
+            </div>
+            <div class="detail__product-info">
+              <h4>BA-110PP-7ADR</h4>
+              <p class="detail__product-price">
+                <del class="detail__product-old-price">1000000</del>
+                <strong class="detail__product-new-price">2000000</strong>
+              </p>
+              <button class="detail__product-btn-detail">xem chi tiết</button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer__container">
+        <div class="footer__contact">
+          <h3>THÔNG TIN LIÊN HỆ</h3>
+          <ul class="footer__contact-list">
+            <li class="footer__contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <p>
+                435 - Trần Quốc Tảng, Cẩm Thịnh, Cẩm Phả, Quảng Ninh, Việt Nam
+              </p>
+            </li>
+            <li class="footer__contact-item">
+              <i class="fa-solid fa-phone-volume"></i>
+              <p>0 327 842 451</p>
+            </li>
+            <li class="footer__contact-item">
+              <i class="fa-solid fa-envelope-open"></i>
+              <p>
+                nguyenhongson18052003@gmail.com <br />
+                sonhong18052k3@gmail.com
+              </p>
+            </li>
+            <li class="footer__contact-item">
+              <i class="fa-brands fa-skype"></i>
+              <p>sonhong_1805</p>
+            </li>
+          </ul>
+          <ul class="footer__social-list">
+            <li class="footer__social-item">
+              <i class="fa-brands fa-facebook-f"></i>
+            </li>
+            <li class="footer__social-item">
+              <i class="fa-brands fa-instagram"></i>
+            </li>
+            <li class="footer__social-item">
+              <i class="fa-brands fa-x-twitter"></i>
+            </li>
+            <li class="footer__social-item"><i class="fa-solid fa-rss"></i></li>
+            <li class="footer__social-item">
+              <i class="fa-brands fa-linkedin"></i>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h3>LIÊN KẾT</h3>
+          <ul class="footer__links-list">
+            <li class="footer__links-item"><a href="shop.html">Danh mục</a></li>
+            <li class="footer__links-item">
+              <a href="about.html">Giới thiệu</a>
+            </li>
+            <li class="footer__links-item"><a href="#">Đồng hồ</a></li>
+            <li class="footer__links-item"><a href="news.html">Tin tức</a></li>
+            <li class="footer__links-item">
+              <a href="contact.html">Liên hệ</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__support">
+          <h3>HỖ TRỢ</h3>
+          <ul class="footer__support-list">
+            <li class="footer__support-item">
+              <a href="#">Hướng dẫn mua hàng</a>
+            </li>
+            <li class="footer__support-item">
+              <a href="#">Hướng dẫn thanh toán </a>
+            </li>
+            <li class="footer__support-item">
+              <a href="#">Chính sách bảo hành</a>
+            </li>
+            <li class="footer__support-item">
+              <a href="#">Chính sách đổi trả</a>
+            </li>
+            <li class="footer__support-item">
+              <a href="#">Tư vấn khách hàng</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__app">
+          <h3>TẢI ỨNG DỤNG TRÊN</h3>
+          <p>
+            Ứng dụng Mona Watch hiện có sẵn trên Google Play & App Store. Tải nó
+            ngay.
+          </p>
+          <div class="footer__app-download">
+            <a href="#" class="footer__app-image">
+              <img src="images/download-1.jpg" alt="" />
+            </a>
+            <a href="#" class="footer__app-image">
+              <img src="images/download-2.jpg" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <section class="modal">
+      <div class="swiper myModal">
+        <div class="swiper-wrapper modal__images">
+          <div class="swiper-slide">
+            <div class="swiper-zoom-container">
+              <img src="images/Aviator/aviator-1.1.png" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="swiper-zoom-container">
+              <img src="images/Aviator/aviator-1.2.jpg" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="swiper-zoom-container">
+              <img src="images/Aviator/aviator-1.3.jpg" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="swiper-zoom-container">
+              <img src="images/Aviator/aviator-1.4.jpg" />
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <button class="btn-closeModal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </section>
+    <section class="popup">
+      <button class="btn-xmark">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="popup-container">
+        <div class="popup__search">
+          <div class="popup__search-input">
+            <input type="text" placeholder="Tìm kiếm ....." />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
+        <ul class="popup__menu">
+          <li><a href="index.html" class="popup__menu-item">Trang chủ</a></li>
+          <li class="popup__menu-item--dropdown">
+            <div class="popup__menu-link-container">
+              <a href="shop.html" class="popup__menu-item">Danh mục</a>
+              <i class="fa-solid fa-chevron-down popup__icon"></i>
+            </div>
+            <ul class="popup__submenu"></ul>
+          </li>
+          <li><a href="about.html" class="popup__menu-item">Giới thiệu</a></li>
+          <li class="popup__menu-item--dropdown">
+            <div class="popup__menu-link-container">
+              <a href="shop.html" class="popup__menu-item">Đồng hồ </a>
+              <i class="fa-solid fa-chevron-down popup__icon"></i>
+            </div>
+            <ul class="popup__submenu">
+              <li>
+                <a
+                  href="javascript:void(0);"
+                  class="popup__submenu-item"
+                  data-tag="man"
+                  >Đồng hồ nam</a
+                >
+              </li>
+              <li>
+                <a
+                  href="javascript:void(0);"
+                  class="popup__submenu-item"
+                  data-tag="woman"
+                  >Đồng hồ nữ</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li><a href="news.html" class="popup__menu-item">Tin tức</a></li>
+          <li><a href="contact.html" class="popup__menu-item">Liên hệ</a></li>
+          <li>
+            <a href="login.html" class="popup__menu-item popup__item-open"
+              >Đăng nhập</a
+            >
+            <a href="user.html" class="popup__menu-item popup__item-close">
+              <span id="username-popup"></span>
+              <i class="fa-solid fa-circle-user icon-user"></i>
+            </a>
+          </li>
+          <li>
+            <a href="sign_up.html" class="popup__menu-item popup__item-open"
+              >Đăng ký</a
+            >
+            <a
+              href="javascript:void(0);"
+              class="popup__menu-item popup__item-close log-out"
+              >Đăng xuất</a
+            >
+          </li>
+        </ul>
+        <ul class="popup__social-icons">
+          <li><i class="fa-brands fa-facebook-f popup__social-icon"></i></li>
+          <li><i class="fa-brands fa-instagram popup__social-icon"></i></li>
+          <li><i class="fa-brands fa-x-twitter popup__social-icon"></i></li>
+        </ul>
+      </div>
+    </section>
+    <a href="#" class="goTop"><i class="fa-solid fa-chevron-up"></i></a>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="general.js"></script>
+  <script type="module" src="detail.js"></script>
+</html>

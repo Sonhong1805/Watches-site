@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang cá nhân</title>
+    <link rel="shortcut icon" href="images/logo-icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="user.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header__top">
+        <div class="header__info">
+          <div class="header__address">
+            <i class="fa-solid fa-location-dot"></i>
+            435 - Trần Quốc Tảng, Cẩm Thịnh, Cẩm Phả, Quảng Ninh, Việt Nam
+          </div>
+          <div class="header__phone">
+            <i class="fa-solid fa-phone"></i>
+            0 327 842 451
+          </div>
+        </div>
+        <div class="header__social">
+          <ul class="header__social-list">
+            <li><i class="fa-brands fa-facebook-f"></i></li>
+            <li><i class="fa-brands fa-instagram"></i></li>
+            <li><i class="fa-brands fa-x-twitter"></i></li>
+          </ul>
+          <div class="header__user user--open">
+            <i class="fa-regular fa-user"></i>
+            <a href="login.html" class="header__user-link">Đăng nhập</a>
+            <a href="sign_up.html" class="header__user-link">Đăng ký</a>
+          </div>
+          <div class="header__user user--close">
+            <i class="fa-regular fa-circle-user"></i>
+            <a
+              href="user.html"
+              class="header__user-link userpage"
+              id="username"></a>
+            <a href="javascript:void(0);" class="header__user-link log-out"
+              >Đăng xuất</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="header-border">
+        <div class="header__bottom">
+          <button class="header__bars">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <a href="index.html" class="header__bottom-logo">
+            <img src="images/logo.png" alt="" />
+          </a>
+          <div class="header__bottom-search">
+            <input type="text" placeholder="Tìm kiếm ..... " />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <a href="cart.html" class="header__bottom-cart">
+            <div class="header__bottom-text">giỏ hàng</div>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <div class="header__bottom-counter">0</div>
+          </a>
+        </div>
+      </div>
+    </header>
+    <nav class="navbar">
+      <div class="navbar__container">
+        <ul class="navbar__list">
+          <li class="navbar__item">
+            <a href="index.html" class="navbar__link">Trang chủ</a>
+          </li>
+          <li class="navbar__item navbar__item--has-dropdown">
+            <a href="shop.html" class="navbar__link"
+              >Danh mục <i class="fa-solid fa-chevron-down"></i
+            ></a>
+            <ul class="navbar__sub-list"></ul>
+          </li>
+          <li class="navbar__item">
+            <a href="about.html" class="navbar__link">Giới thiệu</a>
+          </li>
+          <li class="navbar__item">
+            <a href="shop.html" class="navbar__link"
+              >Đồng hồ <i class="fa-solid fa-chevron-down"></i
+            ></a>
+            <ul class="navbar__sub-list">
+              <li class="navbar__sub-item">
+                <a
+                  href="javascript:void(0);"
+                  class="navbar__sub-link"
+                  data-tag="man"
+                  >Đồng hồ nam</a
+                >
+              </li>
+              <li class="navbar__sub-item">
+                <a
+                  href="javascript:void(0);"
+                  class="navbar__sub-link"
+                  data-tag="woman"
+                  >Đồng hồ nữ</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="navbar__item">
+            <a href="news.html" class="navbar__link">Tin tức</a>
+          </li>
+          <li class="navbar__item">
+            <a href="contact.html" class="navbar__link">Liên hệ</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main class="profile">
+      <aside class="profile__sidebar">
+        <h3><i class="fa-regular fa-user"></i> Tài khoản của tôi</h3>
+        <ul class="profile__sidebar-list">
+          <li class="profile__sidebar-item">
+            <a href="javascript:void(0)" class="profile__sidebar-link active"
+              >Hồ sơ</a
+            >
+          </li>
+          <li class="profile__sidebar-item">
+            <a href="javascript:void(0)" class="profile__sidebar-link"
+              >Ngân hàng</a
+            >
+          </li>
+          <li class="profile__sidebar-item">
+            <a href="javascript:void(0)" class="profile__sidebar-link"
+              >Địa chỉ</a
+            >
+          </li>
+          <li class="profile__sidebar-item">
+            <a href="javascript:void(0)" class="profile__sidebar-link"
+              >Đổi mật khẩu</a
+            >
+          </li>
+          <li class="profile__sidebar-item">
+            <a href="index.html" class="profile__sidebar-logout">Đăng xuất</a>
+          </li>
+        </ul>
+      </aside>
+      <div class="profile__sidebar-overlay"></div>
+      <button class="btn__sidebar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <section class="profile__section">
+        <div class="profile__details">
+          <div class="profile__content">
+            <div class="profile__header active">
+              <button class="profile__header-button">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+              <div class="">
+                <h2 class="profile__header-title">Hồ sơ của tôi</h2>
+                <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+              </div>
+            </div>
+            <div class="profile__header">
+              <button class="profile__header-button">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+              <h2 class="profile__header-title">Tài Khoản Ngân Hàng Của Tôi</h2>
+            </div>
+            <div class="profile__header">
+              <button class="profile__header-button">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+              <h2 class="profile__header-title">Địa chỉ Của Tôi</h2>
+            </div>
+            <div class="profile__header">
+              <button class="profile__header-button">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+              <div class="">
+                <h2 class="profile__header-title">Thêm mật khẩu</h2>
+                <p>
+                  Để bảo mật tài khoản, vui lòng không chia sẻ mật khẩu cho
+                  người khác
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profile__form active">
+          <div class="profile__form-container">
+            <div class="profile__form-field">
+              <div class="profile__form-label">Tên đăng nhập</div>
+              <input
+                type="text"
+                class="profile__form-input"
+                id="username-input" />
+            </div>
+            <div class="profile__form-field">
+              <div class="profile__form-label realname">Tên</div>
+              <input
+                type="text"
+                class="profile__form-input"
+                id="realname-input" />
+            </div>
+            <div class="profile__form-field">
+              <div class="profile__form-label">Email</div>
+              <input
+                type="email"
+                class="profile__form-input"
+                id="email-input" />
+            </div>
+            <div class="profile__form-field">
+              <div class="profile__form-label">Số điện thoại</div>
+              <input type="text" class="profile__form-input" id="phone-input" />
+            </div>
+            <div class="profile__form-field">
+              <div class="profile__form-label">Giới tính</div>
+              <div class="profile__form-radio-group">
+                <div class="profile__form-radio">
+                  <input type="radio" name="gender" value="Nam" id="man" />
+                  <label for="man" class="profile__form-radio-label">Nam</label>
+                </div>
+                <div class="profile__form-radio">
+                  <input type="radio" name="gender" value="Nữ" id="woman" />
+                  <label for="woman" class="profile__form-radio-label"
+                    >Nữ</label
+                  >
+                </div>
+                <div class="profile__form-radio">
+                  <input type="radio" name="gender" value="Khác" id="other" />
+                  <label for="other" class="profile__form-radio-label"
+                    >Khác</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="profile__form-field">
+              <div class="profile__form-label">Ngày sinh</div>
+              <div class="profile__form-select-group">
+                <div class="profile__form-select">
+                  <div class="selected-options">
+                    <div class="selected-option">
+                      <div class="current-option day">1</div>
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <ul class="option-list day"></ul>
+                  </div>
+                  <div class="selected-options">
+                    <div class="selected-option">
+                      <div class="current-option month">Tháng 1</div>
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <ul class="option-list month"></ul>
+                  </div>
+                  <div class="selected-options">
+                    <div class="selected-option">
+                      <div class="current-option year">1990</div>
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <ul class="option-list year"></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="profile__form-field">
+              <div class="profile__form-label"></div>
+              <button class="profile__form-button" id="add-info">Lưu</button>
+            </div>
+          </div>
+        </div>
+        <div class="profile__form">
+          <div class="profile__form-container">
+            <div class="profile__form-field">
+              <div class="profile__form-label">Ngân hàng</div>
+              <div class="profile__form-select">
+                <div class="selected-options bank">
+                  <div class="selected-option bank">
+                    <div class="current-option__image">
+                      <img src="" alt="" />
+                      <div class="current-option bank"></div>
+                    </div>
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                  <ul class="option-list bank">
+                    <!-- <li class="option-item">
+                      <input
+                        type="text"
+                        placeholder="Tìm ngân hàng"
+                        class="option-input"
+                        autofocus />
+                    </li>
+                    <li class="option-item bank-item">
+                      <img src="images/agribank-logo.jfif" alt="" />
+                      <div class="option-item bank">Agribank</div>
+                    </li>
+                    <li class="option-item bank-item">
+                      <img src="images/techcombank-logo.jfif" alt="" />
+                      <div class="option-item bank">Techcombank</div>
+                    </li>
+                    <li class="option-item bank-item">
+                      <img src="images/vietinbank-logo.jfif" alt="" />
+                      <div class="option-item bank">Vietinbank</div>
+                    </li>
+                    <li class="option-item bank-item">
+                      <img src="images/shb-logo.jfif" alt="" />
+                      <div class="option-item bank">SHB</div>
+                    </li>
+                    <li class="option-item bank-item">
+                      <img src="images/bidv-logo.jfif" alt="" />
+                      <div class="option-item bank">BIDV</div>
+                    </li>
+                    <li class="option-item bank-item">
+                      <img src="images/acb.jfif" alt="" />
+                      <div class="option-item bank">ACB</div>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="profile__form-field">
+              <div class="profile__form-label">Số tài khoản</div>
+              <input
+                type="text"
+                class="profile__form-input"
+                placeholder="Nhập vào"
+                id="account-number" />
+            </div>
+            <div class="profile__form-field">
+              <div class="profile__form-label">Chủ tài khoản</div>
+              <input
+                type="text"
+                class="profile__form-input"
+                placeholder="Viết in hoa, không dấu - NGUYEN VAN A"
+                id="owner"
+                onkeyup="this.value = this.value.toUpperCase();" />
+            </div>
+            <div class="profile__form-field">
+              <div class="profile__form-label">Số CMND</div>
+              <input
+                type="text"
+                class="profile__form-input"
+                id="cmnd"
+                placeholder="Nhập vào" />
+            </div>
+            <div class="profile__form-field">
+              <div class="profile__form-label">Mã bảo vệ</div>
+              <div class="input-with-addon">
+                <input
+                  type="text"
+                  class="profile__form-input addon"
+                  id="addon" />
+                <div class="addon-text">abcxyz123</div>
+              </div>
+            </div>
+            <div class="profile__form-field">
+              <div class="profile__form-label"></div>
+              <div class="profile__form-buttons">
+                <button class="profile__form-button" id="add-bank">
+                  Thêm ngân hàng
+                </button>
+                <button class="profile__form-button" id="delete-bank">
+                  Xoá ngân hàng
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profile__form">
+          <div class="profile__form-container">
+            <div class="profile__form-field address">
+              <input
+                type="text"
+                class="profile__form-input"
+                placeholder="Họ và tên"
+                id="realname-address" />
+              <input
+                type="text"
+                class="profile__form-input"
+                placeholder="Số điện thoại"
+                id="phone-address" />
+            </div>
+            <div class="profile__form-field address">
+              <div class="profile__form-select-group">
+                <div class="profile__form-select">
+                  <div class="selected-options address">
+                    <div class="selected-option address">
+                      <input
+                        type="text"
+                        class="current-option province"
+                        placeholder="Tỉnh/Thành phố" />
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <ul class="option-list provice">
+                      <!-- <li class="option-item province">Tp.Cẩm Phả</li>
+                      <li class="option-item province">Tp.Vân Đồn</li>
+                      <li class="option-item province">Tp.Hạ Long</li>
+                      <li class="option-item province">Tp.Đông Triều</li>
+                      <li class="option-item province">Tp.Móng Cái</li>
+                      <li class="option-item province">Tp.Quảng Yên</li> -->
+                    </ul>
+                  </div>
+                  <div class="selected-options address">
+                    <div class="selected-option address district address-hide">
+                      <input
+                        type="text"
+                        class="current-option district"
+                        placeholder="Quận/Huyện"
+                        disabled />
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <ul class="option-list district">
+                      <!-- <li class="option-item district">Ba Đình</li>
+                      <li class="option-item district">Hoàn Kiếm</li>
+                      <li class="option-item district">Cầu Giấy</li>
+                      <li class="option-item district">Hai Bà Trưng</li>
+                      <li class="option-item district">Thanh Xuân</li>
+                      <li class="option-item district">Hoàng Mai</li>
+                      <li class="option-item district">Bắc Từ Liêm</li> -->
+                    </ul>
+                  </div>
+                  <div class="selected-options address">
+                    <div class="selected-option address ward address-hide">
+                      <input
+                        type="text"
+                        class="current-option ward"
+                        placeholder="Phường/Xã"
+                        disabled />
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <ul class="option-list ward">
+                      <!-- <li class="option-item ward">Phường Nam Đồng</li>
+                      <li class="option-item ward">Phường Vĩnh Tuy</li>
+                      <li class="option-item ward">Phường Yên Phụ</li>
+                      <li class="option-item ward">Xã Minh Khai</li>
+                      <li class="option-item ward">Xã Trung Lập Thượng</li>
+                      <li class="option-item ward">Phường Quỳnh Mai</li>
+                      <li class="option-item ward">Xã Đại Mỗ</li> -->
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="profile__form-field address">
+              <textarea
+                name=""
+                cols="30"
+                rows="5"
+                id="note-address"
+                placeholder="Địa chỉ cụ thể"></textarea>
+            </div>
+            <div class="address-type profile__form-field">
+              <div class="address-type__label">Loại địa chỉ:</div>
+              <div class="address-type__option">
+                <input type="radio" name="type" id="home" value="home" />
+                <label for="home">Nhà riêng</label>
+              </div>
+              <div class="address-type__option">
+                <input type="radio" name="type" id="office" value="office" />
+                <label for="office">Văn phòng</label>
+              </div>
+            </div>
+            <div class="profile__form-default">
+              <input type="checkbox" id="default-address" />
+              <label for="">Đặt làm địa chỉ mặc định</label>
+            </div>
+            <div class="profile__form-field address">
+              <button class="profile__form-button" id="add-address">
+                Thêm địa chỉ
+              </button>
+              <button class="profile__form-button" id="reset-address">
+                Huỷ
+              </button>
+            </div>
+            <div class="profile__address">
+              <h2 class="profile__header-title">Địa chỉ</h2>
+              <div class="profile__address-details">
+                <!-- <div class="profile__address-item">
+                  <div class="profile__address-info">
+                    <div class="profile__address-contact">
+                      <strong class="profile__address-name"
+                        >Nguyễn Hồng Sơn</strong
+                      >
+                      <span class="profile__address-separator"></span>
+                      <span class="profile__address-phone"
+                        >(+84) 327842451</span
+                      >
+                    </div>
+                    <p class="profile__address-street">Số 173, Phố Định Công</p>
+                    <p class="profile__address-location">
+                      Phường Định Công, Quận Hoàng Mai, Hà Nội
+                    </p>
+                    <button class="profile__address-default">Mặc định</button>
+                  </div>
+                  <div class="profile__actions">
+                    <button class="profile__update">Cập nhật</button>
+                    <button class="profile__delete">Xoá</button>
+                    <br />
+                    <button class="profile__set-default">
+                      Thiết lập mặc định
+                    </button>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profile__form">
+          <div class="profile__form-container profile__form-password">
+            <div class="profile__form-field">
+              <div class="profile__form-label password">Mật khẩu mới</div>
+              <div class="password-field">
+                <input
+                  type="password"
+                  id="new-password"
+                  class="profile__form-input password-field__input" />
+                <i class="fa-solid fa-eye hide eye-open"></i>
+                <i class="fa-solid fa-eye-slash eye-close"></i>
+              </div>
+            </div>
+            <div class="profile__form-check" id="new_password-check">
+              <div class="profile__form-label password"></div>
+              <div class="password-field">
+                <p class="new__password-error" id="new_password-check">
+                  Mật khẩu phải dài 8-16 ký tự, chứa ít nhất một ký tự viết hoa
+                  và một ký tự viết thường và chỉ bao gồm các chữ cái, số hoặc
+                  dấu câu thông thường
+                </p>
+              </div>
+            </div>
+            <div class="profile__form-field">
+              <div class="profile__form-label password">Xác nhận mật khẩu</div>
+              <div class="password-field">
+                <input
+                  type="password"
+                  id="repeat-password"
+                  class="profile__form-input password-field__input" />
+                <i class="fa-solid fa-eye hide eye-open"></i>
+                <i class="fa-solid fa-eye-slash eye-close"></i>
+              </div>
+            </div>
+            <div class="profile__form-check" id="repeat_password-check">
+              <div class="profile__form-label password"></div>
+              <div class="password-field">
+                <p class="new__password-error">
+                  Mật khẩu và Mật khẩu xác nhận không giống nhau
+                </p>
+              </div>
+            </div>
+            <div class="profile__form-field">
+              <div class="profile__form-label password"></div>
+              <button
+                class="profile__form-button check-error"
+                id="add-password">
+                Xác nhận
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer__container">
+        <div class="footer__contact">
+          <h3>THÔNG TIN LIÊN HỆ</h3>
+          <ul class="footer__contact-list">
+            <li class="footer__contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <p>
+                435 - Trần Quốc Tảng, Cẩm Thịnh, Cẩm Phả, Quảng Ninh, Việt Nam
+              </p>
+            </li>
+            <li class="footer__contact-item">
+              <i class="fa-solid fa-phone-volume"></i>
+              <p>0 327 842 451</p>
+            </li>
+            <li class="footer__contact-item">
+              <i class="fa-solid fa-envelope-open"></i>
+              <p>
+                nguyenhongson18052003@gmail.com <br />
+                sonhong18052k3@gmail.com
+              </p>
+            </li>
+            <li class="footer__contact-item">
+              <i class="fa-brands fa-skype"></i>
+              <p>sonhong_1805</p>
+            </li>
+          </ul>
+          <ul class="footer__social-list">
+            <li class="footer__social-item">
+              <i class="fa-brands fa-facebook-f"></i>
+            </li>
+            <li class="footer__social-item">
+              <i class="fa-brands fa-instagram"></i>
+            </li>
+            <li class="footer__social-item">
+              <i class="fa-brands fa-x-twitter"></i>
+            </li>
+            <li class="footer__social-item"><i class="fa-solid fa-rss"></i></li>
+            <li class="footer__social-item">
+              <i class="fa-brands fa-linkedin"></i>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h3>LIÊN KẾT</h3>
+          <ul class="footer__links-list">
+            <li class="footer__links-item">
+              <a href="shop.html">Danh mục</a>
+            </li>
+            <li class="footer__links-item">
+              <a href="about.html">Giới thiệu</a>
+            </li>
+            <li class="footer__links-item"><a href="#">Đồng hồ</a></li>
+            <li class="footer__links-item"><a href="news.html">Tin tức</a></li>
+            <li class="footer__links-item">
+              <a href="contact.html">Liên hệ</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__support">
+          <h3>HỖ TRỢ</h3>
+          <ul class="footer__support-list">
+            <li class="footer__support-item">
+              <a href="#">Hướng dẫn mua hàng</a>
+            </li>
+            <li class="footer__support-item">
+              <a href="#">Hướng dẫn thanh toán </a>
+            </li>
+            <li class="footer__support-item">
+              <a href="#">Chính sách bảo hành</a>
+            </li>
+            <li class="footer__support-item">
+              <a href="#">Chính sách đổi trả</a>
+            </li>
+            <li class="footer__support-item">
+              <a href="#">Tư vấn khách hàng</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__app">
+          <h3>TẢI ỨNG DỤNG TRÊN</h3>
+          <p>
+            Ứng dụng Mona Watch hiện có sẵn trên Google Play & App Store. Tải nó
+            ngay.
+          </p>
+          <div class="footer__app-download">
+            <a href="#" class="footer__app-image">
+              <img src="images/download-1.jpg" alt="" />
+            </a>
+            <a href="#" class="footer__app-image">
+              <img src="images/download-2.jpg" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <section class="popup">
+      <button class="btn-xmark">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="popup-container">
+        <div class="popup__search">
+          <div class="popup__search-input">
+            <input type="text" placeholder="Tìm kiếm ....." />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
+        <ul class="popup__menu">
+          <li><a href="index.html" class="popup__menu-item">Trang chủ</a></li>
+          <li class="popup__menu-item--dropdown">
+            <div class="popup__menu-link-container">
+              <a href="shop.html" class="popup__menu-item">Danh mục</a>
+              <i class="fa-solid fa-chevron-down popup__icon"></i>
+            </div>
+            <ul class="popup__submenu"></ul>
+          </li>
+          <li><a href="about.html" class="popup__menu-item">Giới thiệu</a></li>
+          <li class="popup__menu-item--dropdown">
+            <div class="popup__menu-link-container">
+              <a href="shop.html" class="popup__menu-item">Đồng hồ </a>
+              <i class="fa-solid fa-chevron-down popup__icon"></i>
+            </div>
+            <ul class="popup__submenu">
+              <li>
+                <a
+                  href="javascript:void(0);"
+                  class="popup__submenu-item"
+                  data-tag="man"
+                  >Đồng hồ nam</a
+                >
+              </li>
+              <li>
+                <a
+                  href="javascript:void(0);"
+                  class="popup__submenu-item"
+                  data-tag="woman"
+                  >Đồng hồ nữ</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li><a href="news.html" class="popup__menu-item">Tin tức</a></li>
+          <li><a href="contact.html" class="popup__menu-item">Liên hệ</a></li>
+          <li>
+            <a href="login.html" class="popup__menu-item popup__item-open"
+              >Đăng nhập</a
+            >
+            <a href="user.html" class="popup__menu-item popup__item-close">
+              <span id="username-popup"></span>
+              <i class="fa-solid fa-circle-user icon-user"></i>
+            </a>
+          </li>
+          <li>
+            <a href="sign_up.html" class="popup__menu-item popup__item-open"
+              >Đăng ký</a
+            >
+            <a
+              href="javascript:void(0);"
+              class="popup__menu-item popup__item-close log-out"
+              >Đăng xuất</a
+            >
+          </li>
+        </ul>
+        <ul class="popup__social-icons">
+          <li><i class="fa-brands fa-facebook-f popup__social-icon"></i></li>
+          <li><i class="fa-brands fa-instagram popup__social-icon"></i></li>
+          <li><i class="fa-brands fa-x-twitter popup__social-icon"></i></li>
+        </ul>
+      </div>
+    </section>
+    <a href="#" class="goTop"><i class="fa-solid fa-chevron-up"></i></a>
+  </body>
+  <script type="module" src="general.js"></script>
+  <script type="module" src="user.js"></script>
+</html>

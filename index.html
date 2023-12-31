@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang chủ</title>
+    <link rel="shortcut icon" href="images/logo-icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header__top">
+        <div class="header__info">
+          <div class="header__address">
+            <i class="fa-solid fa-location-dot"></i>
+            435 - Trần Quốc Tảng, Cẩm Thịnh, Cẩm Phả, Quảng Ninh, Việt Nam
+          </div>
+          <div class="header__phone">
+            <i class="fa-solid fa-phone"></i>
+            0 327 842 451
+          </div>
+        </div>
+        <div class="header__social">
+          <ul class="header__social-list">
+            <li><i class="fa-brands fa-facebook-f"></i></li>
+            <li><i class="fa-brands fa-instagram"></i></li>
+            <li><i class="fa-brands fa-x-twitter"></i></li>
+          </ul>
+          <div class="header__user user--open">
+            <i class="fa-regular fa-user"></i>
+            <a href="login.html" class="header__user-link">Đăng nhập</a>
+            <a href="sign_up.html" class="header__user-link">Đăng ký</a>
+          </div>
+          <div class="header__user user--close">
+            <i class="fa-regular fa-circle-user"></i>
+            <a
+              href="user.html"
+              class="header__user-link userpage"
+              id="username"></a>
+            <a href="javascript:void(0);" class="header__user-link log-out"
+              >Đăng xuất</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="header-border">
+        <div class="header__bottom">
+          <button class="header__bars">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <a href="index.html" class="header__bottom-logo">
+            <img src="images/logo.png" alt="" />
+          </a>
+          <div class="header__bottom-search">
+            <input type="text" placeholder="Tìm kiếm ..... " />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <a href="cart.html" class="header__bottom-cart">
+            <div class="header__bottom-text">giỏ hàng</div>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <div class="header__bottom-counter">0</div>
+          </a>
+        </div>
+      </div>
+    </header>
+    <nav class="navbar">
+      <div class="navbar__container">
+        <ul class="navbar__list">
+          <li class="navbar__item">
+            <a href="index.html" class="navbar__link active">Trang chủ</a>
+          </li>
+          <li class="navbar__item navbar__item--has-dropdown">
+            <a href="shop.html" class="navbar__link"
+              >Danh mục <i class="fa-solid fa-chevron-down"></i
+            ></a>
+            <ul class="navbar__sub-list"></ul>
+          </li>
+          <li class="navbar__item">
+            <a href="about.html" class="navbar__link">Giới thiệu</a>
+          </li>
+          <li class="navbar__item">
+            <a href="shop.html" class="navbar__link"
+              >Đồng hồ <i class="fa-solid fa-chevron-down"></i
+            ></a>
+            <ul class="navbar__sub-list">
+              <li class="navbar__sub-item">
+                <a
+                  href="javascript:void(0);"
+                  class="navbar__sub-link"
+                  data-tag="man"
+                  >Đồng hồ nam</a
+                >
+              </li>
+              <li class="navbar__sub-item">
+                <a
+                  href="javascript:void(0);"
+                  class="navbar__sub-link"
+                  data-tag="woman"
+                  >Đồng hồ nữ</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="navbar__item">
+            <a href="news.html" class="navbar__link">Tin tức</a>
+          </li>
+          <li class="navbar__item">
+            <a href="contact.html" class="navbar__link">Liên hệ</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <section class="banner">
+        <div class="swiper myBanner">
+          <div class="swiper-wrapper">
+            <article
+              class="swiper-slide"
+              style="background-image: url('images/slide-bg-1.jpg')">
+              <div class="banner-overlay"></div>
+              <div class="swiper-container swiper__banner">
+                <div class="swiper__banner-content">
+                  <h4 class="">Mona Watch</h4>
+                  <h1>Đồng hồ Classico</h1>
+                  <p>
+                    Cùng với sự phát triển không ngừng của thời trang thế giới,
+                    rất nhiều thương hiệu cho ra đời những mẫu đồng hồ nam chính
+                    hãng đa dạng về phong cách, kiểu dáng, màu sắc, kích cỡ…
+                  </p>
+                  <button>Xem sản phẩm</button>
+                </div>
+              </div>
+            </article>
+            <article
+              class="swiper-slide"
+              style="background-image: url('images/slide-bg-2.jpg')">
+              <div class="banner-overlay"></div>
+              <div class="swiper-container swiper__banner">
+                <div class="swiper__banner-content">
+                  <h4 class="">Mona Watch</h4>
+                  <h1>Đồng hồ Classico</h1>
+                  <p>
+                    Cùng với sự phát triển không ngừng của thời trang thế giới,
+                    rất nhiều thương hiệu cho ra đời những mẫu đồng hồ nam chính
+                    hãng đa dạng về phong cách, kiểu dáng, màu sắc, kích cỡ…
+                  </p>
+                  <button>Xem sản phẩm</button>
+                </div>
+              </div>
+            </article>
+            <article
+              class="swiper-slide"
+              style="background-image: url('images/slide-bg-3.jpg')">
+              <div class="swiper-container swiper__banner">
+                <div class="banner-overlay"></div>
+                <div class="swiper__banner-content">
+                  <h4 class="">Mona Watch</h4>
+                  <h1>Đồng hồ Classico</h1>
+                  <p>
+                    Cùng với sự phát triển không ngừng của thời trang thế giới,
+                    rất nhiều thương hiệu cho ra đời những mẫu đồng hồ nam chính
+                    hãng đa dạng về phong cách, kiểu dáng, màu sắc, kích cỡ…
+                  </p>
+                  <button>Xem sản phẩm</button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="swiper-button-next">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+          <div class="swiper-button-prev">
+            <i class="fa-solid fa-chevron-left"></i>
+          </div>
+          <!-- <div class="swiper-pagination"></div> -->
+        </div>
+      </section>
+      <section class="category">
+        <h2>Danh mục sản phẩm</h2>
+        <div class="swiper myCategory">
+          <div class="swiper-wrapper"></div>
+          <div class="swiper-button-next">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+          <div class="swiper-button-prev">
+            <i class="fa-solid fa-chevron-left"></i>
+          </div>
+        </div>
+      </section>
+      <section class="outstanding">
+        <div class="outstanding__options">
+          <div class="outstanding__option">
+            <input
+              type="radio"
+              name="outstanding"
+              id="popular"
+              value="popular"
+              checked />
+            <label for="popular">Sản phẩm phổ biến</label>
+          </div>
+          <div class="outstanding__option">
+            <input
+              type="radio"
+              name="outstanding"
+              id="promotion"
+              value="promotion" />
+            <label for="promotion">Sản phẩm khuyến mãi</label>
+          </div>
+          <div class="outstanding__option">
+            <input type="radio" name="outstanding" id="new" value="new" />
+            <label for="new">Sản phẩm mới</label>
+          </div>
+        </div>
+        <div class="outstanding__products"></div>
+      </section>
+      <section class="blogs">
+        <h2>Tin tức sự kiện</h2>
+        <div class="swiper">
+          <div class="myBlogs">
+            <div class="swiper-wrapper"></div>
+          </div>
+          <div class="swiper-button-next">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+          <div class="swiper-button-prev">
+            <i class="fa-solid fa-chevron-left"></i>
+          </div>
+        </div>
+      </section>
+      <section class="feedback">
+        <h2>Feedback từ khách hàng</h2>
+        <div class="feedback__container"></div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer__container">
+        <div class="footer__contact">
+          <h3>THÔNG TIN LIÊN HỆ</h3>
+          <ul class="footer__contact-list">
+            <li class="footer__contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <p>
+                435 - Trần Quốc Tảng, Cẩm Thịnh, Cẩm Phả, Quảng Ninh, Việt Nam
+              </p>
+            </li>
+            <li class="footer__contact-item">
+              <i class="fa-solid fa-phone-volume"></i>
+              <p>0 327 842 451</p>
+            </li>
+            <li class="footer__contact-item">
+              <i class="fa-solid fa-envelope-open"></i>
+              <p>
+                nguyenhongson18052003@gmail.com <br />
+                sonhong18052k3@gmail.com
+              </p>
+            </li>
+            <li class="footer__contact-item">
+              <i class="fa-brands fa-skype"></i>
+              <p>sonhong_1805</p>
+            </li>
+          </ul>
+          <ul class="footer__social-list">
+            <li class="footer__social-item">
+              <i class="fa-brands fa-facebook-f"></i>
+            </li>
+            <li class="footer__social-item">
+              <i class="fa-brands fa-instagram"></i>
+            </li>
+            <li class="footer__social-item">
+              <i class="fa-brands fa-x-twitter"></i>
+            </li>
+            <li class="footer__social-item"><i class="fa-solid fa-rss"></i></li>
+            <li class="footer__social-item">
+              <i class="fa-brands fa-linkedin"></i>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h3>LIÊN KẾT</h3>
+          <ul class="footer__links-list">
+            <li class="footer__links-item"><a href="shop.html">Danh mục</a></li>
+            <li class="footer__links-item">
+              <a href="about.html">Giới thiệu</a>
+            </li>
+            <li class="footer__links-item"><a href="#">Đồng hồ</a></li>
+            <li class="footer__links-item"><a href="news.html">Tin tức</a></li>
+            <li class="footer__links-item">
+              <a href="contact.html">Liên hệ</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__support">
+          <h3>HỖ TRỢ</h3>
+          <ul class="footer__support-list">
+            <li class="footer__support-item">
+              <a href="#">Hướng dẫn mua hàng</a>
+            </li>
+            <li class="footer__support-item">
+              <a href="#">Hướng dẫn thanh toán </a>
+            </li>
+            <li class="footer__support-item">
+              <a href="#">Chính sách bảo hành</a>
+            </li>
+            <li class="footer__support-item">
+              <a href="#">Chính sách đổi trả</a>
+            </li>
+            <li class="footer__support-item">
+              <a href="#">Tư vấn khách hàng</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__app">
+          <h3>TẢI ỨNG DỤNG TRÊN</h3>
+          <p>
+            Ứng dụng Mona Watch hiện có sẵn trên Google Play & App Store. Tải nó
+            ngay.
+          </p>
+          <div class="footer__app-download">
+            <a href="#" class="footer__app-image">
+              <img src="images/download-1.jpg" alt="" />
+            </a>
+            <a href="#" class="footer__app-image">
+              <img src="images/download-2.jpg" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <section class="popup">
+      <button class="btn-xmark">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="popup-container">
+        <div class="popup__search">
+          <div class="popup__search-input">
+            <input type="text" placeholder="Tìm kiếm ....." />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
+        <ul class="popup__menu">
+          <li><a href="index.html" class="popup__menu-item">Trang chủ</a></li>
+          <li class="popup__menu-item--dropdown">
+            <div class="popup__menu-link-container">
+              <a href="shop.html" class="popup__menu-item">Danh mục</a>
+              <i class="fa-solid fa-chevron-down popup__icon"></i>
+            </div>
+            <ul class="popup__submenu"></ul>
+          </li>
+          <li><a href="about.html" class="popup__menu-item">Giới thiệu</a></li>
+          <li class="popup__menu-item--dropdown">
+            <div class="popup__menu-link-container">
+              <a href="shop.html" class="popup__menu-item">Đồng hồ </a>
+              <i class="fa-solid fa-chevron-down popup__icon"></i>
+            </div>
+            <ul class="popup__submenu">
+              <li>
+                <a
+                  href="javascript:void(0);"
+                  class="popup__submenu-item"
+                  data-tag="man"
+                  >Đồng hồ nam</a
+                >
+              </li>
+              <li>
+                <a
+                  href="javascript:void(0);"
+                  class="popup__submenu-item"
+                  data-tag="woman"
+                  >Đồng hồ nữ</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li><a href="news.html" class="popup__menu-item">Tin tức</a></li>
+          <li><a href="contact.html" class="popup__menu-item">Liên hệ</a></li>
+          <li>
+            <a href="login.html" class="popup__menu-item popup__item-open"
+              >Đăng nhập</a
+            >
+            <a
+              href="user.html"
+              class="popup__menu-item profile popup__item-close">
+              <span id="username-popup"></span>
+              <i class="fa-solid fa-circle-user icon-user"></i>
+            </a>
+          </li>
+          <li>
+            <a href="sign_up.html" class="popup__menu-item popup__item-open"
+              >Đăng ký</a
+            >
+            <a
+              href="javascript:void(0);"
+              class="popup__menu-item popup__item-close log-out"
+              >Đăng xuất</a
+            >
+          </li>
+        </ul>
+        <ul class="popup__social-icons">
+          <li><i class="fa-brands fa-facebook-f popup__social-icon"></i></li>
+          <li><i class="fa-brands fa-instagram popup__social-icon"></i></li>
+          <li><i class="fa-brands fa-x-twitter popup__social-icon"></i></li>
+        </ul>
+      </div>
+    </section>
+    <a href="#" class="goTop"><i class="fa-solid fa-chevron-up"></i></a>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="general.js"></script>
+  <script type="module" src="index.js"></script>
+</html>

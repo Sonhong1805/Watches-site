@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang đăng nhập</title>
+    <link rel="shortcut icon" href="images/logo-icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header class="login-header">
+      <nav>
+        <a href="/" class="logo"><img src="/images/logo.png" alt="" /></a>
+        <a href="#">Bạn cần giúp đỡ?</a>
+      </nav>
+    </header>
+    <div class="login-page">
+      <div class="form-container">
+        <div class="form-heading">
+          <h3>Đăng nhập</h3>
+        </div>
+        <form action="">
+          <div class="form-group">
+            <span
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+              </svg>
+            </span>
+            <input type="text" id="username" placeholder=" " />
+            <label for="username">Tên đăng nhập</label>
+          </div>
+          <div class="error error-username"></div>
+          <div class="form-group">
+            <span
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+              </svg>
+            </span>
+            <input type="password" id="password" placeholder=" " />
+            <label for="password">Mật khẩu</label>
+            <i
+              class="fa-regular fa-eye-slash"
+              id="eye"
+              onclick="togglePasswordType()"></i>
+          </div>
+          <div class="error error-password"></div>
+          <div class="register">
+            <div class="register-input">
+              <input type="checkbox" id="remember" />
+              <label for="remember"> Ghi nhớ tài khoản </label>
+            </div>
+            <a href="/forgot_password.html">Quên mật Khẩu?</a>
+          </div>
+          <div class="form-button">
+            <button id="btn-login">Đăng nhập</button>
+          </div>
+          <div class="sign_up">
+            Bạn mới biết đến mona?
+            <a href="/sign_up.html" class="sign_up-link"> Đăng ký</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="login.js"></script>
+</html>
