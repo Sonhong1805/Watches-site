@@ -634,7 +634,7 @@ section.modal .swiper-slide {
 .swiper-zoom-container > canvas,
 .swiper-zoom-container > img,
 .swiper-zoom-container > svg {
-  max-width: 50% !important;
+  max-width: 80% !important;
 }
 
 section.modal .swiper .swiper-button-next,
@@ -671,5 +671,15 @@ section.modal .swiper .swiper-button-prev {
 
   .detail__slider {
     width: auto;
+  }
+
+  .detail__products-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .detail__products-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
