@@ -118,7 +118,7 @@ btnSearch.addEventListener("click", () => {
   const inputSearch = document.querySelector(".header__bottom-search input");
   const searchValue = inputSearch.value.trim();
 
-  const url = new URL("shop.html", window.location.origin);
+  const url = new URL("project-ecommerce/shop.html", window.location.origin);
   const params = new URLSearchParams(url.search);
 
   params.set("name", searchValue);
@@ -132,7 +132,7 @@ btnPopupSearch.addEventListener("click", () => {
   const inputSearch = document.querySelector(".popup__search-input input");
   const searchValue = inputSearch.value.trim();
 
-  const url = new URL("shop.html", window.location.origin);
+  const url = new URL("project-ecommerce/shop.html", window.location.origin);
   const params = new URLSearchParams(url.search);
 
   params.set("name", searchValue);
