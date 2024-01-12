@@ -7,7 +7,7 @@ const renderSubmenu = () => {
   html = categories.map((category) => {
     return `
       <li class="navbar__sub-item">
-        <a href="javascript:void(0)" class="navbar__sub-link" data-category=${category.id}>${category.name}</a>
+        <a href="shop.html?category=${category.id}" class="navbar__sub-link">${category.name}</a>
       </li>
     `;
   });
@@ -20,7 +20,7 @@ const renderSubmenuPopup = () => {
   let html = "";
   html = categories.map((category) => {
     return `
-      <li><a href="javascript:void(0)" class="popup__submenu-item" data-category=${category.id}>${category.name}</a></li>
+      <li><a href="shop.html?category=${category.id}" class="popup__submenu-item">${category.name}</a></li>
     `;
   });
   document.querySelector(".popup__submenu").innerHTML = html.join(" ");
@@ -69,11 +69,10 @@ window.addEventListener("scroll", () => {
   }
 });
 
-let queryString = window.location.search;
-let urlParam = new URLSearchParams(queryString);
-let paramsId = urlParam.get("id");
+let loginUser = JSON.parse(localStorage.getItem("loginUser"));
 
-if (paramsId) {
+if (loginUser) {
+  const currentUser = userStorage.find((user) => user.id === +loginUser);
   const headerUserFirst = document.querySelector(".header__user");
   headerUserFirst.classList.remove("user--open");
   headerUserFirst.classList.add("user--close");
@@ -99,67 +98,20 @@ if (paramsId) {
     link.classList.add("popup__item-open");
   });
 
-  const { username } = userStorage.find((user) => user.id === +paramsId);
+  const { username } = currentUser;
   if (username) {
     document.querySelector("#username").innerHTML = username;
     document.querySelector("#username-popup").innerHTML = username;
   }
 
-  const userpage = document.querySelector(".userpage");
-  const logo = document.querySelector(".header__bottom-logo");
-  const cartPage = document.querySelector(".header__bottom-cart");
-
-  const linksArr = [userpage, logo, cartPage];
-  linksArr.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const newUrl = new URL(link.href);
-      const newParams = new URLSearchParams(newUrl.search);
-
-      newParams.set("id", paramsId);
-      newUrl.search = newParams.toString();
-
-      window.location.href = newUrl.href;
-    });
-  });
-
   const linksLogout = document.querySelectorAll(".log-out");
-  linksLogout.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const newUrl = new URL(window.location.href);
-      const newParams = new URLSearchParams(newUrl.search);
-
-      newParams.delete("id");
-      newUrl.search = newParams.toString();
-
-      window.location.href = newUrl.href;
+  linksLogout.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      localStorage.removeItem("loginUser");
+      location.reload();
     });
   });
 }
-
-const navbarLinks = document.querySelectorAll(".navbar__link");
-const popupLinks = document.querySelectorAll(".popup__menu-item:not(.log-out)");
-
-const navLinksArr = [navbarLinks, popupLinks];
-navLinksArr.forEach((navLink) => {
-  navLink.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (paramsId) {
-        const newUrl = new URL(link.href);
-        const newParams = new URLSearchParams(newUrl.search);
-
-        newParams.set("id", paramsId);
-        newUrl.search = newParams.toString();
-
-        window.location.href = newUrl.href;
-      } else {
-        window.location.href = link.href;
-      }
-    });
-  });
-});
 
 const btnSearch = document.querySelector(".header__bottom-search i");
 btnSearch.addEventListener("click", () => {
@@ -169,11 +121,7 @@ btnSearch.addEventListener("click", () => {
   const url = new URL("shop.html", window.location.origin);
   const params = new URLSearchParams(url.search);
 
-  if (paramsId) {
-    params.set("id", paramsId);
-  }
-
-  params.set("q", searchValue);
+  params.set("name", searchValue);
   url.search = params.toString();
 
   window.location.href = url.href;
@@ -187,50 +135,14 @@ btnPopupSearch.addEventListener("click", () => {
   const url = new URL("shop.html", window.location.origin);
   const params = new URLSearchParams(url.search);
 
-  if (paramsId) {
-    params.set("id", paramsId);
-  }
-
-  params.set("q", searchValue);
+  params.set("name", searchValue);
   url.search = params.toString();
 
   window.location.href = url.href;
 });
 
-const subLinkTags = document.querySelectorAll("[data-tag]");
-subLinkTags.forEach((tag) => {
-  tag.addEventListener("click", () => {
-    const url = new URL("shop.html", window.location.origin);
-    const params = new URLSearchParams(url.search);
-    if (paramsId) {
-      params.set("id", paramsId);
-    }
-    params.set("tag", tag.dataset.tag);
-    url.search = params.toString();
-
-    window.location.href = url.href;
-  });
-});
-
-const subLinkCategories = document.querySelectorAll("[data-category]");
-subLinkCategories.forEach((category) => {
-  category.addEventListener("click", () => {
-    const url = new URL("shop.html", window.location.origin);
-    const params = new URLSearchParams(url.search);
-
-    if (paramsId) {
-      params.set("id", paramsId);
-    }
-
-    params.set("category", category.dataset.category);
-    url.search = params.toString();
-
-    window.location.href = url.href;
-  });
-});
-
-if (paramsId) {
-  const currentUser = userStorage.find((user) => user.id === +paramsId);
+if (loginUser) {
+  const currentUser = userStorage.find((user) => user.id === +loginUser);
   const counter = document.querySelector(".header__bottom-counter");
   if (currentUser.cart) {
     const totalQuantity = currentUser.cart.reduce(

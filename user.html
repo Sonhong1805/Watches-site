@@ -96,7 +96,7 @@
             <ul class="navbar__sub-list">
               <li class="navbar__sub-item">
                 <a
-                  href="javascript:void(0);"
+                  href="shop.html?tag=man"
                   class="navbar__sub-link"
                   data-tag="man"
                   >Đồng hồ nam</a
@@ -104,7 +104,7 @@
               </li>
               <li class="navbar__sub-item">
                 <a
-                  href="javascript:void(0);"
+                  href="shop.html?tag=woman"
                   class="navbar__sub-link"
                   data-tag="woman"
                   >Đồng hồ nữ</a
@@ -121,32 +121,32 @@
         </ul>
       </div>
     </nav>
-    <main class="profile">
+    <main class="profile__user">
       <aside class="profile__sidebar">
         <h3><i class="fa-regular fa-user"></i> Tài khoản của tôi</h3>
         <ul class="profile__sidebar-list">
           <li class="profile__sidebar-item">
-            <a href="javascript:void(0)" class="profile__sidebar-link active"
-              >Hồ sơ</a
-            >
+            <a href="user.html" class="profile__sidebar-link active">Hồ sơ</a>
           </li>
           <li class="profile__sidebar-item">
-            <a href="javascript:void(0)" class="profile__sidebar-link"
+            <a href="user.html?user-index=1" class="profile__sidebar-link"
               >Ngân hàng</a
             >
           </li>
           <li class="profile__sidebar-item">
-            <a href="javascript:void(0)" class="profile__sidebar-link"
+            <a href="user.html?user-index=2" class="profile__sidebar-link"
               >Địa chỉ</a
             >
           </li>
           <li class="profile__sidebar-item">
-            <a href="javascript:void(0)" class="profile__sidebar-link"
+            <a href="user.html?user-index=3" class="profile__sidebar-link"
               >Đổi mật khẩu</a
             >
           </li>
           <li class="profile__sidebar-item">
-            <a href="index.html" class="profile__sidebar-logout">Đăng xuất</a>
+            <a href="index.html" class="profile__sidebar-logout log-out"
+              >Đăng xuất</a
+            >
           </li>
         </ul>
       </aside>
@@ -282,7 +282,7 @@
                 <div class="selected-options bank">
                   <div class="selected-option bank">
                     <div class="current-option__image">
-                      <img src="" alt="" />
+                      <img src="" alt="logo-bank" />
                       <div class="current-option bank"></div>
                     </div>
                     <i class="fa-solid fa-chevron-down"></i>
@@ -396,14 +396,7 @@
                         placeholder="Tỉnh/Thành phố" />
                       <i class="fa-solid fa-chevron-down"></i>
                     </div>
-                    <ul class="option-list provice">
-                      <!-- <li class="option-item province">Tp.Cẩm Phả</li>
-                      <li class="option-item province">Tp.Vân Đồn</li>
-                      <li class="option-item province">Tp.Hạ Long</li>
-                      <li class="option-item province">Tp.Đông Triều</li>
-                      <li class="option-item province">Tp.Móng Cái</li>
-                      <li class="option-item province">Tp.Quảng Yên</li> -->
-                    </ul>
+                    <ul class="option-list provice"></ul>
                   </div>
                   <div class="selected-options address">
                     <div class="selected-option address district address-hide">
@@ -414,15 +407,7 @@
                         disabled />
                       <i class="fa-solid fa-chevron-down"></i>
                     </div>
-                    <ul class="option-list district">
-                      <!-- <li class="option-item district">Ba Đình</li>
-                      <li class="option-item district">Hoàn Kiếm</li>
-                      <li class="option-item district">Cầu Giấy</li>
-                      <li class="option-item district">Hai Bà Trưng</li>
-                      <li class="option-item district">Thanh Xuân</li>
-                      <li class="option-item district">Hoàng Mai</li>
-                      <li class="option-item district">Bắc Từ Liêm</li> -->
-                    </ul>
+                    <ul class="option-list district"></ul>
                   </div>
                   <div class="selected-options address">
                     <div class="selected-option address ward address-hide">
@@ -433,15 +418,7 @@
                         disabled />
                       <i class="fa-solid fa-chevron-down"></i>
                     </div>
-                    <ul class="option-list ward">
-                      <!-- <li class="option-item ward">Phường Nam Đồng</li>
-                      <li class="option-item ward">Phường Vĩnh Tuy</li>
-                      <li class="option-item ward">Phường Yên Phụ</li>
-                      <li class="option-item ward">Xã Minh Khai</li>
-                      <li class="option-item ward">Xã Trung Lập Thượng</li>
-                      <li class="option-item ward">Phường Quỳnh Mai</li>
-                      <li class="option-item ward">Xã Đại Mỗ</li> -->
-                    </ul>
+                    <ul class="option-list ward"></ul>
                   </div>
                 </div>
               </div>
@@ -470,7 +447,7 @@
               <label for="">Đặt làm địa chỉ mặc định</label>
             </div>
             <div class="profile__form-field address">
-              <button class="profile__form-button" id="add-address">
+              <button class="profile__form-button add-address" id="">
                 Thêm địa chỉ
               </button>
               <button class="profile__form-button" id="reset-address">
@@ -479,34 +456,7 @@
             </div>
             <div class="profile__address">
               <h2 class="profile__header-title">Địa chỉ</h2>
-              <div class="profile__address-details">
-                <!-- <div class="profile__address-item">
-                  <div class="profile__address-info">
-                    <div class="profile__address-contact">
-                      <strong class="profile__address-name"
-                        >Nguyễn Hồng Sơn</strong
-                      >
-                      <span class="profile__address-separator"></span>
-                      <span class="profile__address-phone"
-                        >(+84) 327842451</span
-                      >
-                    </div>
-                    <p class="profile__address-street">Số 173, Phố Định Công</p>
-                    <p class="profile__address-location">
-                      Phường Định Công, Quận Hoàng Mai, Hà Nội
-                    </p>
-                    <button class="profile__address-default">Mặc định</button>
-                  </div>
-                  <div class="profile__actions">
-                    <button class="profile__update">Cập nhật</button>
-                    <button class="profile__delete">Xoá</button>
-                    <br />
-                    <button class="profile__set-default">
-                      Thiết lập mặc định
-                    </button>
-                  </div>
-                </div> -->
-              </div>
+              <div class="profile__address-details"></div>
             </div>
           </div>
         </div>
@@ -659,6 +609,14 @@
           </div>
         </div>
       </div>
+      <div class="footer__additional">
+        <p>Design by <strong>( Nguyễn Hồng Sơn )</strong> - 2023</p>
+        <ul>
+          <li><i class="fa-brands fa-html5"></i></li>
+          <li><i class="fa-brands fa-css3-alt"></i></li>
+          <li><i class="fa-brands fa-square-js"></i></li>
+        </ul>
+      </div>
     </footer>
     <section class="popup">
       <button class="btn-xmark">
@@ -689,7 +647,7 @@
             <ul class="popup__submenu">
               <li>
                 <a
-                  href="javascript:void(0);"
+                  href="shop.html?tag=man"
                   class="popup__submenu-item"
                   data-tag="man"
                   >Đồng hồ nam</a
@@ -697,7 +655,7 @@
               </li>
               <li>
                 <a
-                  href="javascript:void(0);"
+                  href="shop.html?tag=woman"
                   class="popup__submenu-item"
                   data-tag="woman"
                   >Đồng hồ nữ</a
@@ -711,7 +669,9 @@
             <a href="login.html" class="popup__menu-item popup__item-open"
               >Đăng nhập</a
             >
-            <a href="user.html" class="popup__menu-item popup__item-close">
+            <a
+              href="user.html"
+              class="popup__menu-item profile popup__item-close">
               <span id="username-popup"></span>
               <i class="fa-solid fa-circle-user icon-user"></i>
             </a>
@@ -736,6 +696,7 @@
     </section>
     <a href="#" class="goTop"><i class="fa-solid fa-chevron-up"></i></a>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script type="module" src="general.js"></script>
   <script type="module" src="user.js"></script>
 </html>

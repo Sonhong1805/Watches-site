@@ -2,10 +2,11 @@ const userStorage = JSON.parse(localStorage.getItem("userStorage"));
 
 let queryString = window.location.search;
 let urlParam = new URLSearchParams(queryString);
-let paramsId = urlParam.get("id");
 
-if (paramsId) {
-  const currentUser = userStorage.find((user) => user.id === +paramsId);
+let loginUser = JSON.parse(localStorage.getItem("loginUser"));
+
+if (loginUser) {
+  const currentUser = userStorage.find((user) => user.id === +loginUser);
   document.querySelector("#username-input").value = currentUser.username;
   document.querySelector("#email-input").value = currentUser.email;
   document.querySelector("#phone-input").value = currentUser.phone ?? "";
@@ -32,7 +33,8 @@ if (paramsId) {
 
   const logoBank = document.querySelector(".current-option__image img");
   logoBank.style.display = currentUser.bank?.logo ? "block" : "none";
-  logoBank.src = currentUser.bank?.logo;
+  logoBank.src =
+    currentUser.bank?.logo ?? "https://placehold.co/500x400/000000/FFFFFF.png";
 
   const optionsDay = document.querySelector(".option-list.day");
   const optionsMonth = document.querySelector(".option-list.month");
@@ -349,27 +351,6 @@ if (paramsId) {
     profileForm[paramsUserIndex].classList.add("active");
   }
 
-  sidebarLinks.forEach((link, index) => {
-    link.addEventListener("click", () => {
-      sidebar
-        .querySelector(".profile__sidebar-link.active")
-        .classList.remove("active");
-      link.classList.add("active");
-
-      document
-        .querySelector(".profile__header.active")
-        .classList.remove("active");
-      profileHeader[index].classList.add("active");
-
-      document
-        .querySelector(".profile__form.active")
-        .classList.remove("active");
-      profileForm[index].classList.add("active");
-
-      sidebar.classList.remove("sidebar--open");
-    });
-  });
-
   const selectedOptions = document.querySelectorAll(".selected-option");
 
   selectedOptions.forEach((option) => {
@@ -456,7 +437,12 @@ if (paramsId) {
       month: optionMonth.textContent,
       year: optionYear.textContent,
     };
-    alert("Lưu thông tin thành công");
+    Swal.fire({
+      icon: "success",
+      title: "Cập nhật hồ sơ !",
+      showConfirmButton: false,
+      timer: 1500,
+    });
     localStorage.setItem("userStorage", JSON.stringify(userStorage));
     document.querySelector("#username").innerHTML = usernameInput.value;
     document.querySelector("#username-popup").innerHTML = usernameInput.value;
@@ -471,23 +457,48 @@ if (paramsId) {
   const checkEmptyBank = () => {
     let isEmpty = true;
     if (nameBank.textContent === "Chọn ngân hàng") {
-      alert("Vui lòng chọn ngân hàng");
+      Swal.fire({
+        icon: "warning",
+        title: "Vui lòng chọn ngân hàng",
+        showCancelButton: true,
+        cancelButtonText: "Hủy",
+      });
       isEmpty = false;
       return;
     } else if (isNaN(accountNumber.value) || accountNumber.value === "") {
-      alert("Vui lòng nhập lại số tài khoản");
+      Swal.fire({
+        icon: "warning",
+        title: "Vui lòng nhập lại số tài khoản",
+        showCancelButton: true,
+        cancelButtonText: "Hủy",
+      });
       isEmpty = false;
       return;
     } else if (owner.value === "") {
-      alert("Vui lòng nhập chủ tài khoản");
+      Swal.fire({
+        icon: "warning",
+        title: "Vui lòng nhập chủ tài khoản",
+        showCancelButton: true,
+        cancelButtonText: "Hủy",
+      });
       isEmpty = false;
       return;
     } else if (cmnd.value === "") {
-      alert("Vui lòng nhập CMND");
+      Swal.fire({
+        icon: "warning",
+        title: "Vui lòng nhập CMND",
+        showCancelButton: true,
+        cancelButtonText: "Hủy",
+      });
       isEmpty = false;
       return;
     } else if (addonInput.value !== addonText.textContent) {
-      alert("Sai mã bảo vệ !!!");
+      Swal.fire({
+        icon: "error",
+        title: "Sai mã bảo vệ !!!",
+        showCancelButton: true,
+        cancelButtonText: "Hủy",
+      });
       isEmpty = false;
       return;
     }
@@ -505,7 +516,12 @@ if (paramsId) {
         accountNumber: accountNumber.value,
       };
       addonInput.value = "";
-      alert("Thêm ngân hàng thành công");
+      Swal.fire({
+        icon: "success",
+        title: "Thêm ngân hàng thành công !",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       addonBank();
       localStorage.setItem("userStorage", JSON.stringify(userStorage));
     }
@@ -530,7 +546,12 @@ if (paramsId) {
   const btnAddPassword = document.querySelector("#add-password");
   btnAddPassword.addEventListener("click", () => {
     currentUser.password = newPasswordInput.value;
-    alert("Thay đổi mật khẩu thành công");
+    Swal.fire({
+      icon: "success",
+      title: "Thay đổi mật khẩu thành công !",
+      showConfirmButton: false,
+      timer: 1500,
+    });
     localStorage.setItem("userStorage", JSON.stringify(userStorage));
   });
 
@@ -620,7 +641,6 @@ if (paramsId) {
   };
 
   const resetFormAddress = () => {
-    idCurrentAddress = null;
     realnameAddress.value = "";
     phoneAddress.value = "";
     noteAddress.value = "";
@@ -633,8 +653,6 @@ if (paramsId) {
     defaultAddress.checked = false;
     btnResetAddress.style.display = "none";
   };
-
-  let addressArray = currentUser.address ?? [];
 
   const renderUserAddress = (arr) => {
     arr.sort((a, b) => (a.default === b.default ? 0 : a.default ? -1 : 1));
@@ -685,25 +703,39 @@ if (paramsId) {
       html.join("");
   };
 
-  renderUserAddress(addressArray);
+  renderUserAddress(currentUser.address);
 
-  const btnsDeleteAddress = document.querySelectorAll(".profile__delete");
-  btnsDeleteAddress.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const idAddress = +btn.dataset.id;
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("profile__delete")) {
+      const idAddress = +e.target.dataset.id;
       currentUser.address = currentUser.address.filter(
         (address) => address.id !== idAddress
       );
-      renderUserAddress(currentUser.address);
-      alert("Xoá địa chỉ thành công");
-      localStorage.setItem("userStorage", JSON.stringify(userStorage));
-    });
+      Swal.fire({
+        icon: "error",
+        title: `Bạn có chắc muốn xoá địa chỉ này?`,
+        showCancelButton: true,
+        confirmButtonText: "Xác nhận",
+        cancelButtonText: "Hủy",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          console.log(e.target);
+          Swal.fire({
+            icon: "success",
+            title: "Xoá địa chỉ thành công !",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          renderUserAddress(currentUser.address);
+          localStorage.setItem("userStorage", JSON.stringify(userStorage));
+        }
+      });
+    }
   });
 
-  const btnsSetDefault = document.querySelectorAll(".profile__set-default");
-  btnsSetDefault.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const idAddress = +btn.dataset.id;
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("profile__set-default")) {
+      const idAddress = +e.target.dataset.id;
       const findAddress = currentUser.address.find(
         (address) => address.id === idAddress
       );
@@ -713,67 +745,66 @@ if (paramsId) {
       findAddress.default = true;
       renderUserAddress(currentUser.address);
       localStorage.setItem("userStorage", JSON.stringify(userStorage));
-    });
+    }
   });
 
   let idCurrentAddress = null;
 
-  let btnAddAdress = document.querySelector("#add-address");
-  btnAddAdress.addEventListener("click", () => {
-    const typeAddress = document.querySelector("input[name='type']:checked");
-    const addressInfo = {
-      realname: realnameAddress.value,
-      phone: phoneAddress.value,
-      note: noteAddress.value,
-      province: provinceAddress.value,
-      district: districtAddress.value,
-      ward: wardAddress.value,
-      type: typeAddress ? typeAddress.value : "",
-    };
-    if (checkEmptyAddress()) {
-      if (idCurrentAddress) {
-        console.log("update");
-        addressArray = currentUser.address.map((address) => {
-          if (address.id === idCurrentAddress) {
-            return {
-              ...addressInfo,
-              id: address.id,
-              default: defaultAddress.checked ? true : false,
-            };
-          } else {
-            return address;
-          }
-        });
+  let btnAddAddress = document.querySelector(".add-address");
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("add-address")) {
+      console.log(e.target);
+      const typeAddress = document.querySelector("input[name='type']:checked");
+      const addressInfo = {
+        realname: realnameAddress.value,
+        phone: phoneAddress.value,
+        note: noteAddress.value,
+        province: provinceAddress.value,
+        district: districtAddress.value,
+        ward: wardAddress.value,
+        type: typeAddress ? typeAddress.value : "",
+      };
+      if (checkEmptyAddress()) {
         if (defaultAddress.checked) {
           currentUser.address?.forEach((item) => {
             item.default = false;
           });
         }
-        renderUserAddress(addressArray);
-        currentUser.address = addressArray;
-        alert("Thay đổi địa chỉ thành công");
-        btnAddAdress.textContent = "Thêm địa chỉ";
-
-        resetFormAddress();
-        localStorage.setItem("userStorage", JSON.stringify(userStorage));
-      } else {
-        const newAddress = {
-          id: Math.floor(Math.random() * 1000000),
-          ...addressInfo,
-          default: defaultAddress.checked ? true : false,
-        };
-
-        if (defaultAddress.checked) {
-          currentUser.address?.forEach((item) => {
-            item.default = false;
+        if (idCurrentAddress) {
+          currentUser.address = currentUser.address.map((address) => {
+            if (address.id === idCurrentAddress) {
+              return {
+                ...addressInfo,
+                id: address.id,
+                default: defaultAddress.checked ? true : false,
+              };
+            } else {
+              return address;
+            }
+          });
+          renderUserAddress(currentUser.address);
+          Swal.fire({
+            icon: "success",
+            title: "Thay đổi địa chỉ thành công",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          btnAddAddress.textContent = "Thêm địa chỉ";
+        } else {
+          const newAddress = {
+            id: Math.floor(Math.random() * 1000000),
+            ...addressInfo,
+            default: defaultAddress.checked ? true : false,
+          };
+          currentUser.address.push(newAddress);
+          renderUserAddress(currentUser.address);
+          Swal.fire({
+            icon: "success",
+            title: "Thêm địa chỉ thành công !",
+            showConfirmButton: false,
+            timer: 1500,
           });
         }
-
-        addressArray.push(newAddress);
-        renderUserAddress(addressArray);
-        currentUser.address = addressArray;
-        alert("Thêm địa chỉ thành công");
-
         resetFormAddress();
         localStorage.setItem("userStorage", JSON.stringify(userStorage));
       }
@@ -782,19 +813,16 @@ if (paramsId) {
 
   const btnResetAddress = document.querySelector("#reset-address");
   btnResetAddress.addEventListener("click", () => {
-    btnAddAdress.textContent = "Thêm địa chỉ";
-
+    btnAddAddress.textContent = "Thêm địa chỉ";
     resetFormAddress();
   });
 
-  const btnsUpdateAddress = document.querySelectorAll(".profile__update");
-  btnsUpdateAddress.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const idAddress = +btn.dataset.id;
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("profile__update")) {
+      const idAddress = +e.target.dataset.id;
       const findAddress = currentUser.address.find(
         (address) => address.id === idAddress
       );
-      console.log(findAddress);
       idCurrentAddress = findAddress.id;
       realnameAddress.value = findAddress.realname;
       phoneAddress.value = findAddress.phone;
@@ -809,10 +837,10 @@ if (paramsId) {
         }
       });
       if (idCurrentAddress) {
-        btnAddAdress.textContent = "Hoàn thành";
+        btnAddAddress.textContent = "Hoàn thành";
         btnResetAddress.style.display = "block";
       }
-    });
+    }
   });
 } else {
   location.href = "index.html";

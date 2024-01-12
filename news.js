@@ -15,54 +15,26 @@ const renderProductList = () => {
       currency: "VND",
     }).format(newPrice);
     return `
-      <li class="news__product-item" data-detail=${product.id}>
-        <div class="news__product-image">
-          <img
-            src=${product.images[0]}
-            alt=""
-            class="news__product-img" />
-        </div>
-        <div class="news__product-info">
-          <h5>${product.title}</h5>
-          <p class="news__product-price">
-            <del>${priceFormat}</del>
-            <strong>${newPriceFormat}</strong>
-          </p>
-        </div>
+      <li class="news__product-item">
+          <a href="detail.html?detail=${product.id}" class="news__product-image">
+            <img
+              src=${product.images[0]}
+              alt=""
+              class="news__product-img" />
+          </a>
+          <a href="detail.html?detail=${product.id}" class="news__product-info">
+            <h5>${product.title}</h5>
+            <p class="news__product-price">
+              <del>${priceFormat}</del>
+              <strong>${newPriceFormat}</strong>
+            </p>
+          </a>
       </li>
       `;
   });
   document.querySelector(".news__product-list").innerHTML = html.join("");
 };
 renderProductList();
-
-let queryString = window.location.search;
-let urlParam = new URLSearchParams(queryString);
-let paramsId = urlParam.get("id");
-
-const products = document.querySelectorAll("li.news__product-item");
-products.forEach((product) => {
-  product.addEventListener("click", () => {
-    const detail = product.dataset.detail;
-    nextToDetail(detail);
-  });
-});
-
-const nextToDetail = (detail) => {
-  const url = new URL("detail.html", window.location.origin);
-  const params = new URLSearchParams(url.search);
-
-  if (paramsId) {
-    params.set("id", paramsId);
-  }
-
-  params.set("detail", detail);
-
-  location.href = url.href;
-  url.search = params.toString();
-
-  window.location.href = url.href;
-};
 
 const renderBlogList = (arr) => {
   let html = "";

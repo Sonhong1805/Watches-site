@@ -2,10 +2,11 @@ let userStorage = JSON.parse(localStorage.getItem("userStorage")) ?? [];
 
 let queryString = window.location.search;
 let urlParam = new URLSearchParams(queryString);
-let paramsId = urlParam.get("id");
 
-if (paramsId) {
-  const currentUser = userStorage.find((user) => user.id === +paramsId);
+let loginUser = JSON.parse(localStorage.getItem("loginUser"));
+
+if (loginUser) {
+  const currentUser = userStorage.find((user) => user.id === +loginUser);
   if (currentUser) {
     const realnameInput = document.querySelector("#realname-input");
     const emailInput = document.querySelector("#email-input");
@@ -54,7 +55,7 @@ if (paramsId) {
                     <img src=${product.thumbnail} alt="" />
                   </div>
                   <div class="payment__product-details">
-                    <p>${product.name}</p>
+                    <p class="payment__product-name">${product.name}</p>
                     <p class="payment__product-price">
                       <strong class="payment__product-quantity">${product.quantity}</strong>
                       x
@@ -97,9 +98,6 @@ if (paramsId) {
     btnEditCart.addEventListener("click", () => {
       const newUrl = new URL("cart.html", window.location.origin);
       const newParams = new URLSearchParams(newUrl.search);
-      if (paramsId) {
-        newParams.set("id", paramsId);
-      }
       newUrl.search = newParams.toString();
       window.location.href = newUrl.href;
     });
@@ -125,7 +123,7 @@ if (paramsId) {
       });
       const optionsProvince = selectProvince.querySelectorAll("option");
       optionsProvince.forEach((option) => {
-        if (option.value === currentAddressDefault.province) {
+        if (option.value === currentAddressDefault?.province) {
           option.selected = true;
           const code = +option.dataset.code;
           getApiDistrict(code);
@@ -166,7 +164,7 @@ if (paramsId) {
       });
       const optionsDistrict = selectDistrict.querySelectorAll("option");
       optionsDistrict.forEach((option) => {
-        if (option.value === currentAddressDefault.district) {
+        if (option.value === currentAddressDefault?.district) {
           option.selected = true;
           const code = +option.dataset.code;
           getApiWard(code);
@@ -200,7 +198,7 @@ if (paramsId) {
       selectWard.innerHTML = html;
       const optionsWard = selectWard.querySelectorAll("option");
       optionsWard.forEach((option) => {
-        if (option.value === currentAddressDefault.ward) {
+        if (option.value === currentAddressDefault?.ward) {
           option.selected = true;
         }
       });
@@ -322,19 +320,26 @@ if (paramsId) {
     }
 
     const buyProductSuccessfully = () => {
-      alert("Mua hàng thành công");
+      Swal.fire({
+        icon: "success",
+        title: "Mua hàng thành công !",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       let currentUserCart = currentUser.cart;
       currentUserCart = currentUserCart.filter((product) => !product.checked);
       console.log(currentUserCart);
       userStorage = userStorage.map((user) => {
-        if (user.id === +paramsId) {
+        if (user.id === +loginUser) {
           return { ...user, cart: currentUserCart };
         } else {
           return user;
         }
       });
       localStorage.setItem("userStorage", JSON.stringify(userStorage));
-      location.href = `cart.html?id=${paramsId}`;
+      setTimeout(() => {
+        location.href = `cart.html`;
+      }, 2000);
     };
 
     const btnBuyProduct = document.querySelector(".user-info__submit-button");
@@ -345,7 +350,14 @@ if (paramsId) {
       if (checkEmptyInput()) {
         if (methodChecked.value === "bank") {
           if (!currentUser.bank) {
-            alert("Vui lòng thêm tài khoản ngân hàng");
+            Swal.fire({
+              icon: "info",
+              title: "Vui lòng thêm tài khoản ngân hàng !",
+              showConfirmButton: false,
+              showCloseButton: true,
+              footer:
+                '<p class="change-bank">Thêm tài khoản ngân hàng?<a href="user.html?user-index=1"> Ấn vào đây !</a></p>',
+            });
           } else {
             buyProductSuccessfully();
           }
@@ -353,16 +365,6 @@ if (paramsId) {
           buyProductSuccessfully();
         }
       }
-    });
-
-    const changeAddress = document.querySelector(".change-address a");
-    changeAddress.addEventListener("click", () => {
-      location.href = `user.html?id=${paramsId}&user-index=2`;
-    });
-
-    const changeBank = document.querySelector(".change-bank a");
-    changeBank.addEventListener("click", () => {
-      location.href = `user.html?id=${paramsId}&user-index=1`;
     });
   }
 } else {

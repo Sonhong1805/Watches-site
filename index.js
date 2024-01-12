@@ -3,7 +3,7 @@ import productList from "./data/products.js";
 import blogList from "./data/blogs.js";
 import reviews from "./data/reviews.js";
 
-let swiperBanner = new Swiper(".myBanner", {
+let swiperSlider = new Swiper(".mySlider", {
   slidesPerView: 1,
   loop: true,
   speed: 1000,
@@ -19,7 +19,7 @@ let swiperBanner = new Swiper(".myBanner", {
 });
 
 function autoBannerSlide() {
-  swiperBanner.slideNext();
+  swiperSlider.slideNext();
 }
 
 let autoBannerSlideInterval;
@@ -32,8 +32,8 @@ function stopBannerAutoSlide() {
   clearInterval(autoBannerSlideInterval);
 }
 
-swiperBanner.el.addEventListener("mouseenter", stopBannerAutoSlide);
-swiperBanner.el.addEventListener("mouseleave", startBannerAutoSlide);
+swiperSlider.el.addEventListener("mouseenter", stopBannerAutoSlide);
+swiperSlider.el.addEventListener("mouseleave", startBannerAutoSlide);
 
 startBannerAutoSlide();
 
@@ -137,7 +137,7 @@ const renderCategories = () => {
   let html = "";
   html = categories.map((category, index) => {
     return `
-    <article class="swiper-slide">
+    <a href='shop.html?category=${category.id}' class="swiper-slide">
     <div class="swiper__category">
       <div class="swiper__category-image">
         <img src=${category.thumbnail} alt="" />
@@ -147,7 +147,7 @@ const renderCategories = () => {
         <p>${category.total} sản phẩm</p>
       </div>
     </div>
-  </article>
+  </a>
     `;
   });
   document.querySelector(".myCategory .swiper-wrapper").innerHTML =
@@ -179,18 +179,24 @@ const renderProductList = (value, firstRender = true) => {
       }"  data-detail=${product.id}> 
         <div class="outstanding__discount">-${product.discount}%</div>
         <div class="outstanding__details">
-          <a href="javascript:void(0);" class="outstanding__image">
+          <a href="detail.html?&detail=${
+            product.id
+          }" class="outstanding__image">
             <img src=${product.images[0]} alt="" />
           </a>
           <div class="outstanding__info">
-            <h2 class="outstanding__title">${product.title}</h2>
+            <a href="detail.html?detail=${
+              product.id
+            }" class="outstanding__title">${product.title}</a>
             <div class="outstanding__price">
               <del class="outstanding__original-price">${priceFormat}</del>
               <strong class="outstanding__discounted-price"
                 >${newPriceFormat}</strong
               >
             </div>
-            <button class="outstanding__details">xem chi tiết</button>
+            <a href="detail.html?&detail=${
+              product.id
+            }" class="outstanding__details">xem chi tiết</a>
           </div>
         </div>
       </article>
@@ -199,46 +205,14 @@ const renderProductList = (value, firstRender = true) => {
   document.querySelector(".outstanding__products").innerHTML = html.join("");
 };
 
-renderProductList("popular");
-
-let queryString = window.location.search;
-let urlParam = new URLSearchParams(queryString);
-let paramsId = urlParam.get("id");
-
-const products = document.querySelectorAll("article.outstanding__product");
-products.forEach((product) => {
-  product.addEventListener("click", () => {
-    const detail = product.dataset.detail;
-    nextToDetail(detail);
-  });
-});
-
-const nextToDetail = (detail) => {
-  const url = new URL("detail.html", window.location.origin);
-  const params = new URLSearchParams(url.search);
-
-  if (paramsId) {
-    params.set("id", paramsId);
-  }
-
-  params.set("detail", detail);
-
-  location.href = url.href;
-  url.search = params.toString();
-
-  window.location.href = url.href;
-};
+renderProductList("new");
 
 const btnsSwiperBanner = document.querySelectorAll(
   ".swiper__banner-content button"
 );
 btnsSwiperBanner.forEach((btn) => {
   btn.addEventListener("click", () => {
-    if (paramsId) {
-      location.href = `shop.html?id=${paramsId}`;
-    } else {
-      location.href = `shop.html`;
-    }
+    location.href = `shop.html`;
   });
 });
 
@@ -276,11 +250,7 @@ renderBlogList();
 const allBlogs = document.querySelectorAll("article.swiper-slide.blog");
 allBlogs.forEach((blog) => {
   blog.addEventListener("click", () => {
-    if (paramsId) {
-      location.href = `news.html?id=${paramsId}`;
-    } else {
-      location.href = `news.html`;
-    }
+    location.href = `news.html`;
   });
 });
 
@@ -330,22 +300,23 @@ feedbacks.forEach((feedback, index) => {
 
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
+  console.log(scrollY);
 
-  if (scrollY > 344) {
+  if (scrollY > 900) {
     myCategory.classList.add("myCategory--open");
   }
 
-  if (scrollY > 752) {
+  if (scrollY > 1800) {
     outstandingProducts.forEach((product) => {
       product.classList.add("products--open");
     });
   }
 
-  if (scrollY > 1700) {
+  if (scrollY > 3400) {
     myBlogs.classList.add("myBlogs--open");
   }
 
-  if (scrollY > 2230) {
+  if (scrollY > 4100) {
     feedbacks.forEach((feedback) => {
       feedback.classList.add("feedback--open");
     });
@@ -360,3 +331,27 @@ outstandingInput.forEach((input) => {
     }
   });
 });
+
+const renderMarquee = () => {
+  let html = "";
+  for (let i = 0; i < 100; i++) {
+    html += `<em> SIÊU PHẨM
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6 sparkles-icon">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                </svg>
+              </em>
+    `;
+  }
+  document.querySelector(".marquee__item").innerHTML = html;
+};
+
+renderMarquee();

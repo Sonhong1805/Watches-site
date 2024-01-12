@@ -2,7 +2,7 @@ li {
   cursor: pointer;
 }
 
-.profile {
+.profile__user {
   max-width: 123rem;
   padding-inline: 1.5rem;
   margin: auto;
@@ -337,7 +337,6 @@ li {
   height: 12rem;
   overflow: auto;
   display: none;
-  z-index: 999;
 }
 
 .option-list.option-open {
@@ -530,6 +529,10 @@ p.new__password-error {
   font-size: 1.4rem;
   color: #555;
   margin-bottom: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 42rem;
 }
 
 .profile__address-location {
@@ -626,6 +629,16 @@ p.new__password-error {
 @media screen and (max-width: 600px) {
   .selected-options {
     max-width: none;
+  }
+  .profile__address-item {
+    flex-direction: column;
+  }
+
+  .profile__actions {
+    text-align: justify;
+    display: flex;
+    gap: 10px;
+    margin-top: 7px;
   }
 }
 

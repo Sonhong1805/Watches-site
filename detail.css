@@ -504,6 +504,7 @@ hr {
   border: 2px solid #ddd;
   position: relative;
   cursor: pointer;
+  text-align: center;
 }
 
 .detail__discount {
@@ -551,6 +552,7 @@ hr {
 
 .detail__product-image {
   overflow: hidden;
+  display: block;
 }
 
 .detail__product-image img {
@@ -563,6 +565,7 @@ hr {
 
 .detail__product-info {
   padding: 1.5rem;
+  display: inline-block;
   text-align: center;
 }
 

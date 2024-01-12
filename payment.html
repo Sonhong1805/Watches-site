@@ -93,7 +93,7 @@
             <ul class="navbar__sub-list">
               <li class="navbar__sub-item">
                 <a
-                  href="javascript:void(0);"
+                  href="shop.html?tag=man"
                   class="navbar__sub-link"
                   data-tag="man"
                   >Đồng hồ nam</a
@@ -101,7 +101,7 @@
               </li>
               <li class="navbar__sub-item">
                 <a
-                  href="javascript:void(0);"
+                  href="shop.html?tag=woman"
                   class="navbar__sub-link"
                   data-tag="woman"
                   >Đồng hồ nữ</a
@@ -223,7 +223,7 @@
             </select>
           </div>
           <p class="change-address">
-            Thay đổi địa chỉ mặc định ?<a href="javascript:void(0)">
+            Thay đổi địa chỉ mặc định ?<a href="user.html?user-index=2">
               Ấn vào đây</a
             >
           </p>
@@ -287,7 +287,7 @@
             <div class="payment-method__bank-details">
               <p class="change-bank">
                 Bạn chưa có tài khoản ngân hàng ?
-                <a href="javascript:void(0)">Ấn vào đây</a>
+                <a href="user.html?user-index=1">Ấn vào đây</a>
               </p>
               <p class="has-bank">
                 Thực hiện thanh toán vào ngay tài khoản ngân hàng của chúng tôi.
@@ -401,6 +401,14 @@
           </div>
         </div>
       </div>
+      <div class="footer__additional">
+        <p>Design by <strong>( Nguyễn Hồng Sơn )</strong> - 2023</p>
+        <ul>
+          <li><i class="fa-brands fa-html5"></i></li>
+          <li><i class="fa-brands fa-css3-alt"></i></li>
+          <li><i class="fa-brands fa-square-js"></i></li>
+        </ul>
+      </div>
     </footer>
     <section class="popup">
       <button class="btn-xmark">
@@ -431,7 +439,7 @@
             <ul class="popup__submenu">
               <li>
                 <a
-                  href="javascript:void(0);"
+                  href="shop.html?tag=man"
                   class="popup__submenu-item"
                   data-tag="man"
                   >Đồng hồ nam</a
@@ -439,7 +447,7 @@
               </li>
               <li>
                 <a
-                  href="javascript:void(0);"
+                  href="shop.html?tag=woman"
                   class="popup__submenu-item"
                   data-tag="woman"
                   >Đồng hồ nữ</a
@@ -453,7 +461,9 @@
             <a href="login.html" class="popup__menu-item popup__item-open"
               >Đăng nhập</a
             >
-            <a href="user.html" class="popup__menu-item popup__item-close">
+            <a
+              href="user.html"
+              class="popup__menu-item profile popup__item-close">
               <span id="username-popup"></span>
               <i class="fa-solid fa-circle-user icon-user"></i>
             </a>
@@ -478,6 +488,7 @@
     </section>
     <a href="#" class="goTop"><i class="fa-solid fa-chevron-up"></i></a>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script type="module" src="general.js"></script>
   <script type="module" src="payment.js"></script>
 </html>

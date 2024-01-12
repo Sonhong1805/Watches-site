@@ -96,7 +96,7 @@
             <ul class="navbar__sub-list">
               <li class="navbar__sub-item">
                 <a
-                  href="javascript:void(0);"
+                  href="shop.html?tag=man"
                   class="navbar__sub-link"
                   data-tag="man"
                   >Đồng hồ nam</a
@@ -104,7 +104,7 @@
               </li>
               <li class="navbar__sub-item">
                 <a
-                  href="javascript:void(0);"
+                  href="shop.html?tag=woman"
                   class="navbar__sub-link"
                   data-tag="woman"
                   >Đồng hồ nữ</a
@@ -122,17 +122,17 @@
       </div>
     </nav>
     <main>
-      <section class="banner">
-        <div class="swiper myBanner">
+      <section class="slider">
+        <div class="swiper mySlider">
           <div class="swiper-wrapper">
             <article
               class="swiper-slide"
-              style="background-image: url('images/slide-bg-1.jpg')">
+              style="background-image: url('images/Home/slide-bg-1.jpg')">
               <div class="banner-overlay"></div>
               <div class="swiper-container swiper__banner">
                 <div class="swiper__banner-content">
                   <h4 class="">Mona Watch</h4>
-                  <h1>Đồng hồ Classico</h1>
+                  <h1>Đồng hồ Chất</h1>
                   <p>
                     Cùng với sự phát triển không ngừng của thời trang thế giới,
                     rất nhiều thương hiệu cho ra đời những mẫu đồng hồ nam chính
@@ -144,12 +144,12 @@
             </article>
             <article
               class="swiper-slide"
-              style="background-image: url('images/slide-bg-2.jpg')">
+              style="background-image: url('images/Home/slide-bg-2.jpg')">
               <div class="banner-overlay"></div>
               <div class="swiper-container swiper__banner">
                 <div class="swiper__banner-content">
                   <h4 class="">Mona Watch</h4>
-                  <h1>Đồng hồ Classico</h1>
+                  <h1>Đồng hồ Đẹp</h1>
                   <p>
                     Cùng với sự phát triển không ngừng của thời trang thế giới,
                     rất nhiều thương hiệu cho ra đời những mẫu đồng hồ nam chính
@@ -161,12 +161,12 @@
             </article>
             <article
               class="swiper-slide"
-              style="background-image: url('images/slide-bg-3.jpg')">
+              style="background-image: url('images/Home/slide-bg-3.jpg')">
               <div class="swiper-container swiper__banner">
                 <div class="banner-overlay"></div>
                 <div class="swiper__banner-content">
                   <h4 class="">Mona Watch</h4>
-                  <h1>Đồng hồ Classico</h1>
+                  <h1>Đồng hồ Sang</h1>
                   <p>
                     Cùng với sự phát triển không ngừng của thời trang thế giới,
                     rất nhiều thương hiệu cho ra đời những mẫu đồng hồ nam chính
@@ -186,8 +186,28 @@
           <!-- <div class="swiper-pagination"></div> -->
         </div>
       </section>
+      <section class="banner">
+        <figure>
+          <img src="images/Home/banner-1.jpg" class="banner-item" alt="" />
+          <figcaption>KHUYẾN MÃi CUỐI NĂM</figcaption>
+        </figure>
+        <figure>
+          <img src="images/Home/banner-2.jpg" class="banner-item" alt="" />
+          <p class="figcaption">XU HƯỚNG PHONG CÁCH</p>
+        </figure>
+        <figure>
+          <a href="#outstanding__options">
+            <img src="images/Home/banner-3.jpg" class="banner-item" alt="" />
+            <i class="fa-solid fa-angles-down banner-icon"></i>
+          </a>
+        </figure>
+        <figure>
+          <img src="images/Home/banner-4.jpg" class="banner-item" alt="" />
+          <figcaption>PHỤ KIỆN SANG TRỌNG</figcaption>
+        </figure>
+      </section>
       <section class="category">
-        <h2>Danh mục sản phẩm</h2>
+        <h2><span>Danh mục</span> sản phẩm</h2>
         <div class="swiper myCategory">
           <div class="swiper-wrapper"></div>
           <div class="swiper-button-next">
@@ -199,14 +219,32 @@
         </div>
       </section>
       <section class="outstanding">
-        <div class="outstanding__options">
+        <div class="outstanding__banner">
+          <figure>
+            <img src="images/Home/banner-5.jpg" class="banner-item" alt="" />
+            <figcaption>Analog & Digital</figcaption>
+          </figure>
+          <figure>
+            <img src="images/Home/banner-6.jpg" class="banner-item" alt="" />
+            <figcaption>Romance in the air</figcaption>
+          </figure>
+        </div>
+        <div id="outstanding__options">
+          <div class="outstanding__option">
+            <input
+              type="radio"
+              name="outstanding"
+              id="new"
+              value="new"
+              checked />
+            <label for="new">Sản phẩm mới</label>
+          </div>
           <div class="outstanding__option">
             <input
               type="radio"
               name="outstanding"
               id="popular"
-              value="popular"
-              checked />
+              value="popular" />
             <label for="popular">Sản phẩm phổ biến</label>
           </div>
           <div class="outstanding__option">
@@ -217,15 +255,39 @@
               value="promotion" />
             <label for="promotion">Sản phẩm khuyến mãi</label>
           </div>
-          <div class="outstanding__option">
-            <input type="radio" name="outstanding" id="new" value="new" />
-            <label for="new">Sản phẩm mới</label>
-          </div>
         </div>
         <div class="outstanding__products"></div>
       </section>
       <section class="blogs">
-        <h2>Tin tức sự kiện</h2>
+        <div class="blogs__banner">
+          <figure>
+            <img src="images/Home/banner-7.jpg" alt="" />
+          </figure>
+          <figure>
+            <img src="images/Home/banner-8.jpg" alt="" />
+          </figure>
+          <figure>
+            <img src="images/Home/banner-9.jpg" alt="" />
+          </figure>
+          <div class="marquee__container">
+            <marquee class="marquee__item" behavior="scroll" direction="left">
+              <em> SIÊU PHẨM </em>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 sparkles-icon">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+              </svg>
+            </marquee>
+          </div>
+        </div>
+        <h2><span>Tin tức</span> sự kiện</h2>
         <div class="swiper">
           <div class="myBlogs">
             <div class="swiper-wrapper"></div>
@@ -238,9 +300,35 @@
           </div>
         </div>
       </section>
+      <section class="brands">
+        <img src="images/Home/brand-1.png" alt="" />
+        <img src="images/Home/brand-2.png" alt="" />
+        <img src="images/Home/brand-3.png" alt="" />
+        <img src="images/Home/brand-4.png" alt="" />
+        <img src="images/Home/brand-5.png" alt="" />
+        <img src="images/Home/brand-6.png" alt="" />
+      </section>
       <section class="feedback">
-        <h2>Feedback từ khách hàng</h2>
+        <h2><span>Feedback</span> từ khách hàng</h2>
         <div class="feedback__container"></div>
+      </section>
+      <section class="advertisement">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/BXSab8XMiOA?si=6uumc4XiHwbEJn7l"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/LRfg9Bt3F48?si=9Ge_wfTBBitx-UV_"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
       </section>
     </main>
     <footer>
@@ -336,6 +424,14 @@
           </div>
         </div>
       </div>
+      <div class="footer__additional">
+        <p>Design by <strong>( Nguyễn Hồng Sơn )</strong> - 2023</p>
+        <ul>
+          <li><i class="fa-brands fa-html5"></i></li>
+          <li><i class="fa-brands fa-css3-alt"></i></li>
+          <li><i class="fa-brands fa-square-js"></i></li>
+        </ul>
+      </div>
     </footer>
     <section class="popup">
       <button class="btn-xmark">
@@ -366,7 +462,7 @@
             <ul class="popup__submenu">
               <li>
                 <a
-                  href="javascript:void(0);"
+                  href="shop.html?tag=man"
                   class="popup__submenu-item"
                   data-tag="man"
                   >Đồng hồ nam</a
@@ -374,7 +470,7 @@
               </li>
               <li>
                 <a
-                  href="javascript:void(0);"
+                  href="shop.html?tag=woman"
                   class="popup__submenu-item"
                   data-tag="woman"
                   >Đồng hồ nữ</a
