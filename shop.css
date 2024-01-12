@@ -94,6 +94,13 @@
   display: flex;
 }
 
+.product__empty {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: none;
+}
+
 /*--------------sidebar-------------*/
 
 .shop__sidebar {

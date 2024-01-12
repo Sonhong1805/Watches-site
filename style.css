@@ -523,8 +523,9 @@ a.outstanding__details {
 .brands img {
   object-fit: contain;
   aspect-ratio: 7/3;
+  max-width: 100%;
+  height: auto;
 }
-
 /* ---------- feedback ----------*/
 
 .feedback {

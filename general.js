@@ -114,31 +114,37 @@ if (loginUser) {
 }
 
 const btnSearch = document.querySelector(".header__bottom-search i");
+const inputSearch = document.querySelector(".header__bottom-search input");
+
 btnSearch.addEventListener("click", () => {
-  const inputSearch = document.querySelector(".header__bottom-search input");
   const searchValue = inputSearch.value.trim();
+  if (searchValue) {
+    window.location.href = "shop.html?name=" + searchValue;
+  }
+});
 
-  const url = new URL("project-ecommerce/shop.html", window.location.origin);
-  const params = new URLSearchParams(url.search);
-
-  params.set("name", searchValue);
-  url.search = params.toString();
-
-  window.location.href = url.href;
+document.addEventListener("keydown", (e) => {
+  const searchValue = inputSearch.value.trim();
+  if (e.key === "Enter" && searchValue) {
+    window.location.href = "shop.html?name=" + searchValue;
+  }
 });
 
 const btnPopupSearch = document.querySelector(".popup__search-input i");
+const inputSearchPopup = document.querySelector(".popup__search-input input");
+
 btnPopupSearch.addEventListener("click", () => {
-  const inputSearch = document.querySelector(".popup__search-input input");
-  const searchValue = inputSearch.value.trim();
+  const searchValuePopup = inputSearchPopup.value.trim();
+  if (searchValuePopup) {
+    window.location.href = "shop.html?name=" + searchValuePopup;
+  }
+});
 
-  const url = new URL("project-ecommerce/shop.html", window.location.origin);
-  const params = new URLSearchParams(url.search);
-
-  params.set("name", searchValue);
-  url.search = params.toString();
-
-  window.location.href = url.href;
+document.addEventListener("keydown", (e) => {
+  const searchValuePopup = inputSearchPopup.value.trim();
+  if (e.key === "Enter" && searchValuePopup) {
+    window.location.href = "shop.html?name=" + searchValuePopup;
+  }
 });
 
 if (loginUser) {

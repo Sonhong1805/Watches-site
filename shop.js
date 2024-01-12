@@ -326,6 +326,12 @@ if (paramsName) {
     product.title.toLowerCase().includes(paramsName.toLowerCase())
   );
   renderProductList(searchArr);
+  const productEmpty = document.querySelector(".product__empty");
+  if (searchArr.length === 0) {
+    productEmpty.style.display = "block";
+  } else {
+    productEmpty.style.display = "none";
+  }
 } else if (paramsName === "") {
   location.href = "shop.html";
 }
