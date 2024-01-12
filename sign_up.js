@@ -82,8 +82,15 @@ btnSignUp.addEventListener("click", (e) => {
       password: password.value,
     });
     localStorage.setItem("userStorage", JSON.stringify(userStorage));
-    alert("Đăng kí thành công");
-    location.href = "login.html";
+    Swal.fire({
+      icon: "success",
+      title: "Đăng kí thành công !",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    setTimeout(() => {
+      location.href = "login.html";
+    }, 1600);
     document.getElementsByTagName("form")[0].reset();
   }
 });
@@ -96,11 +103,17 @@ document.addEventListener("keydown", (e) => {
         username: username.value,
         email: email.value,
         password: password.value,
-        confirmPassword: confirmPassword.value,
       });
       localStorage.setItem("userStorage", JSON.stringify(userStorage));
-      alert("Đăng kí thành công");
-      location.href = "login.html";
+      Swal.fire({
+        icon: "success",
+        title: "Đăng kí thành công !",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      setTimeout(() => {
+        location.href = "login.html";
+      }, 1600);
       document.getElementsByTagName("form")[0].reset();
     }
   }

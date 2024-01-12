@@ -67,8 +67,15 @@ btnUpdate.addEventListener("click", (e) => {
     const user = userStorage.find((user) => user.email === email.value);
     user.password = password.value;
     localStorage.setItem("userStorage", JSON.stringify(userStorage));
-    alert("Thay đổi mật khẩu thành công");
-    location.href = "login.html";
+    Swal.fire({
+      icon: "success",
+      title: "Thay đổi mật khẩu thành công !",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    setTimeout(() => {
+      location.href = "login.html";
+    }, 1600);
     document.getElementsByTagName("form")[0].reset();
   }
 });
@@ -79,8 +86,15 @@ document.addEventListener("keydown", (e) => {
       const user = userStorage.find((user) => user.email === email.value);
       user.password = password.value;
       localStorage.setItem("userStorage", JSON.stringify(userStorage));
-      alert("Thay đổi mật khẩu thành công");
-      location.href = "login.html";
+      Swal.fire({
+        icon: "success",
+        title: "Thay đổi mật khẩu thành công !",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      setTimeout(() => {
+        location.href = "login.html";
+      }, 1600);
       document.getElementsByTagName("form")[0].reset();
     }
   }

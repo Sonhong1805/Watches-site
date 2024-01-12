@@ -98,16 +98,20 @@ document.addEventListener("keydown", (e) => {
           user.username === username.value && user.password === password.value
         );
       });
-      userStorage = userStorage.map((user) => {
-        delete user.isRemember;
-        return user;
-      });
-      user.isRemember = remember.checked;
+      const { id } = user;
+      if (remember.checked) {
+        userStorage = userStorage.map((user) => {
+          delete user.isRemember;
+          return user;
+        });
+        user.isRemember = remember.checked;
+      }
       if (
         username.value === user.username &&
         password.value === user.password
       ) {
-        location.href = "index.html";
+        localStorage.setItem("loginUser", id);
+        location.href = `index.html`;
       }
       localStorage.setItem("userStorage", JSON.stringify(userStorage));
       document.getElementsByTagName("form")[0].reset();

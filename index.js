@@ -300,7 +300,6 @@ feedbacks.forEach((feedback, index) => {
 
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
-  console.log(scrollY);
 
   if (scrollY > 900) {
     myCategory.classList.add("myCategory--open");

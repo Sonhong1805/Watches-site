@@ -654,7 +654,7 @@ if (loginUser) {
     btnResetAddress.style.display = "none";
   };
 
-  const renderUserAddress = (arr) => {
+  const renderUserAddress = (arr = []) => {
     arr.sort((a, b) => (a.default === b.default ? 0 : a.default ? -1 : 1));
     let html = "";
     html = arr.map((address) => {
