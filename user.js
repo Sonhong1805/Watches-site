@@ -753,7 +753,7 @@ if (loginUser) {
   let btnAddAddress = document.querySelector(".add-address");
   document.addEventListener("click", (e) => {
     if (e.target.classList.contains("add-address")) {
-      console.log(e.target);
+      currentUser.address = currentUser.address ?? [];
       const typeAddress = document.querySelector("input[name='type']:checked");
       const addressInfo = {
         realname: realnameAddress.value,
