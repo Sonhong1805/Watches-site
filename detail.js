@@ -221,7 +221,12 @@ btnBuyNow.addEventListener("click", () => {
       handleAddToCart(true);
       window.location.href = "cart.html";
     } else {
-      alert("Vui lòng chọn màu sắc!");
+      Swal.fire({
+        icon: "warning",
+        title: "Vui lòng chọn màu sắc !",
+        showCancelButton: true,
+        cancelButtonText: "Hủy",
+      });
     }
   } else {
     location.href = "login.html";
