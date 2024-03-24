@@ -134,7 +134,7 @@ if (loginUser) {
 
   const getApiBank = async () => {
     try {
-      const response = await fetch("https://api.vietqr.io/v2/banks");
+      const response = await fetch("api/banks.json");
       const json = await response.json();
       const data = json.data;
       renderBankOptions(data);
@@ -172,8 +172,8 @@ if (loginUser) {
       const searchValue = e.target.value.trim().toLowerCase();
       const optionsProvince = document.querySelectorAll(optionClass);
       optionsProvince.forEach((optionItem) => {
-        const provinceName = optionItem.textContent.trim().toLowerCase();
-        const shouldDisplay = provinceName.includes(searchValue);
+        const provinceName = optionItem.textContent.trim();
+        const shouldDisplay = provinceName.toLowerCase().includes(searchValue);
         optionItem.style.display = shouldDisplay ? "block" : "none";
       });
     });
@@ -191,7 +191,7 @@ if (loginUser) {
         optionParent.classList.remove("option-open");
         optionParent.previousElementSibling.classList.remove("option-open");
         document.querySelector(currentOptionClass).value = option.textContent;
-        const code = +e.target.dataset.code;
+        const code = e.target.dataset.code;
         if (code) {
           callApi(code);
         }
@@ -224,7 +224,7 @@ if (loginUser) {
 
   const getApiProvince = async () => {
     try {
-      const response = await fetch("https://provinces.open-api.vn/api/");
+      const response = await fetch("api/provinces.json");
       const data = await response.json();
       renderProvinceOptions(data);
     } catch (error) {
@@ -266,10 +266,10 @@ if (loginUser) {
         addressDistrict.classList.remove("address-hide");
         addressDistrict.querySelector("input").disabled = false;
       }
-      const response = await fetch("https://provinces.open-api.vn/api/d/");
+      const response = await fetch("api/districts.json");
       const data = await response.json();
       let result = data.filter(
-        (district) => district.province_code === province_code
+        (district) => district.parent_code === province_code
       );
       renderDistrictOptions(result);
     } catch (error) {
@@ -299,9 +299,9 @@ if (loginUser) {
         addressDistrict.classList.remove("address-hide");
         addressDistrict.querySelector("input").disabled = false;
       }
-      const response = await fetch("https://provinces.open-api.vn/api/w/");
+      const response = await fetch("api/wards.json");
       const data = await response.json();
-      let result = data.filter((ward) => ward.district_code === district_code);
+      let result = data.filter((ward) => ward.parent_code === district_code);
       renderWardOptions(result);
     } catch (error) {
       console.error("Lỗi:", error);
