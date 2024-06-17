@@ -15,51 +15,44 @@ if (userRemember) {
 
 const checkErrorInputs = () => {
   let isCheckError = true;
+
   if (username.value === "") {
     document.querySelector(".error-username").innerHTML =
       "<strong>Lỗi: </strong> Yêu cầu tên tài khoản.";
     isCheckError = false;
-    return;
   } else {
     document.querySelector(".error-username").innerHTML = "";
-    isCheckError = true;
   }
 
   if (password.value === "") {
     document.querySelector(".error-password").innerHTML =
       "<strong>Lỗi: </strong> Xin điền mật khẩu.";
     isCheckError = false;
-    return;
   } else {
     document.querySelector(".error-password").innerHTML = "";
-    isCheckError = true;
   }
 
   const isCheckUsername = userStorage.some(
     (user) => user.username === username.value
   );
-  const isCheckPassword = userStorage.some(
-    (user) => user.password === password.value
-  );
-
-  if (!isCheckUsername) {
+  if (!isCheckUsername && username.value !== "") {
     document.querySelector(".error-username").innerHTML =
       "<strong>Lỗi: </strong> Tên tài khoản không tồn tại.";
     isCheckError = false;
-    return;
-  } else {
+  } else if (isCheckUsername && username.value !== "") {
     document.querySelector(".error-username").innerHTML = "";
-    isCheckError = true;
   }
 
-  if (!isCheckPassword) {
+  const isCheckPassword = userStorage.some(
+    (user) =>
+      user.username === username.value && user.password === password.value
+  );
+  if (!isCheckPassword && password.value !== "") {
     document.querySelector(".error-password").innerHTML =
       "<strong>Lỗi: </strong> Mật khẩu không hợp lệ";
     isCheckError = false;
-    return;
-  } else {
+  } else if (isCheckPassword && password.value !== "") {
     document.querySelector(".error-password").innerHTML = "";
-    isCheckError = true;
   }
 
   return isCheckError;
@@ -79,8 +72,8 @@ btnLogin.addEventListener("click", (e) => {
         delete user.isRemember;
         return user;
       });
-      user.isRemember = remember.checked;
     }
+    user.isRemember = remember.checked;
     if (username.value === user.username && password.value === user.password) {
       localStorage.setItem("loginUser", id);
       location.href = `index.html`;

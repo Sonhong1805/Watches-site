@@ -118,14 +118,14 @@ if (loginUser) {
       selectProvince.addEventListener("change", () => {
         const optionProvince =
           selectProvince.options[selectProvince.selectedIndex];
-        const code = +optionProvince.dataset.code;
+        const code = optionProvince.dataset.code;
         getApiDistrict(code);
       });
       const optionsProvince = selectProvince.querySelectorAll("option");
       optionsProvince.forEach((option) => {
         if (option.value === currentAddressDefault?.province) {
           option.selected = true;
-          const code = +option.dataset.code;
+          const code = option.dataset.code;
           getApiDistrict(code);
         }
       });
@@ -133,7 +133,7 @@ if (loginUser) {
 
     const getApiProvince = async () => {
       try {
-        const response = await fetch("https://provinces.open-api.vn/api/");
+        const response = await fetch("api/provinces.json");
         const data = await response.json();
         renderProvinceOptions(data);
       } catch (error) {
@@ -159,14 +159,14 @@ if (loginUser) {
       selectDistrict.addEventListener("change", () => {
         const optionDistrict =
           selectDistrict.options[selectDistrict.selectedIndex];
-        const code = +optionDistrict.dataset.code;
+        const code = optionDistrict.dataset.code;
         getApiWard(code);
       });
       const optionsDistrict = selectDistrict.querySelectorAll("option");
       optionsDistrict.forEach((option) => {
         if (option.value === currentAddressDefault?.district) {
           option.selected = true;
-          const code = +option.dataset.code;
+          const code = option.dataset.code;
           getApiWard(code);
         }
       });
@@ -174,10 +174,10 @@ if (loginUser) {
 
     const getApiDistrict = async (province_code) => {
       try {
-        const response = await fetch("https://provinces.open-api.vn/api/d/");
+        const response = await fetch("api/districts.json");
         const data = await response.json();
         let result = data.filter(
-          (district) => district.province_code === province_code
+          (district) => district.parent_code === province_code
         );
         renderDistrictOptions(result);
       } catch (error) {
@@ -206,11 +206,9 @@ if (loginUser) {
 
     const getApiWard = async (district_code) => {
       try {
-        const response = await fetch("https://provinces.open-api.vn/api/w/");
+        const response = await fetch("api/wards.json");
         const data = await response.json();
-        let result = data.filter(
-          (ward) => ward.district_code === district_code
-        );
+        let result = data.filter((ward) => ward.parent_code === district_code);
         renderWardOptions(result);
       } catch (error) {
         console.error("Lỗi:", error);

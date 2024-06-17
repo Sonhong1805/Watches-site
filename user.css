@@ -334,7 +334,7 @@ li {
   left: 0;
   right: 0;
   background: var(--white);
-  height: 12rem;
+  height: 21rem;
   overflow: auto;
   display: none;
 }

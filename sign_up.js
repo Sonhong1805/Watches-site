@@ -8,53 +8,45 @@ const userStorage = JSON.parse(localStorage.getItem("userStorage")) ?? [];
 
 const checkErrorInputs = () => {
   let isCheckError = true;
+
   if (username.value === "") {
     document.querySelector(".error-username").innerHTML =
       "<strong>Lỗi: </strong> Yêu cầu tên tài khoản.";
     isCheckError = false;
-    return;
   } else {
     document.querySelector(".error-username").innerHTML = "";
-    isCheckError = true;
   }
+
   if (email.value === "") {
     document.querySelector(".error-email").innerHTML =
       "<strong>Lỗi: </strong> Xin điền địa chỉ email.";
     isCheckError = false;
-    return;
   } else {
     document.querySelector(".error-email").innerHTML = "";
-    isCheckError = true;
   }
 
   if (password.value === "") {
     document.querySelector(".error-password").innerHTML =
       "<strong>Lỗi: </strong> Xin điền mật khẩu.";
     isCheckError = false;
-    return;
   } else {
     document.querySelector(".error-password").innerHTML = "";
-    isCheckError = true;
   }
 
   if (confirmPassword.value === "") {
     document.querySelector(".error-confirmPassword").innerHTML =
       "<strong>Lỗi: </strong> Xin điền xác nhận lại mật khẩu.";
     isCheckError = false;
-    return;
   } else {
     document.querySelector(".error-confirmPassword").innerHTML = "";
-    isCheckError = true;
   }
 
   if (confirmPassword.value !== password.value) {
     document.querySelector(".error-confirmPassword").innerHTML =
       "<strong>Lỗi: </strong> Mật khẩu xác nhận không hợp lệ.";
     isCheckError = false;
-    return;
-  } else {
+  } else if (confirmPassword.value !== "") {
     document.querySelector(".error-confirmPassword").innerHTML = "";
-    isCheckError = true;
   }
 
   const isCheckEmail = userStorage.some((user) => user.email === email.value);
@@ -62,10 +54,8 @@ const checkErrorInputs = () => {
     document.querySelector(".error-email").innerHTML =
       "<strong>Lỗi: </strong> Địa chỉ email đã tồn tại.";
     isCheckError = false;
-    return;
-  } else {
+  } else if (email.value !== "") {
     document.querySelector(".error-email").innerHTML = "";
-    isCheckError = true;
   }
 
   return isCheckError;
